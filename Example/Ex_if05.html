@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제1</title>
+</head>
+<body>
+    <h3>문제 : 국어, 영어, 수학 평균이 70점 이상이면 "합격", 아니면 "불합격"</h3>
+    <input type="number" id="koScore" name="koScore" />
+    <input type="number" id="engScore" name="engScore" />
+    <input type="number" id="mathScore" name="mathScore" />
+    <button type="button" onclick="score()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function score(){
+            let output = document.getElementById('output');
+            let koScore = Number(document.getElementById('koScore').value);
+            let engScore = Number(document.getElementById('engScore').value);
+            let mathScore = Number(document.getElementById('mathScore').value);
+            let avg = (koScore + engScore + mathScore) / 3;
+            if(avg >= 70){
+                output.innerHTML = '합격'
+                console.log(`국어 : ${koScore}, 영어 : ${engScore}, 수학 : ${mathScore}, 평균 : ${avg} 결과 : ${output.innerHTML}`);
+            } else{
+                output.innerHTML = '불합격'
+                console.log(`국어 : ${koScore}, 영어 : ${engScore}, 수학 : ${mathScore}, 평균 : ${avg} 결과 : ${output.innerHTML}`);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 실습문제1</title>
+</head>
+<body>
+    <button type="button" onclick="fruitPrice()">과일 가격</button>
+    <input type="text" id="fruit" name="fruit">
+    <p id="output"></p>
+
+    <script>
+        function fruitPrice(){
+            let output = document.getElementById('output');
+            let fruit = document.getElementById('fruit').value;
+
+            switch(fruit){
+                case 'apple':
+                    console.log(`apple`);
+                    output.innerHTML = `1000원`;
+                    break;
+                case 'banana':
+                    console.log(`banana`);
+                    output.innerHTML = `2000원`;
+                    break;
+                case 'orange':
+                    console.log(`orange`);
+                    output.innerHTML = `3000원`;
+                    break;
+                default:
+                    console.log(`해당 과일은 없습니다.`);
+                    output.innerHTML = `해당 과일은 없습니다.`;
+            }
+        }
+    </script>
+</body>
+</html>

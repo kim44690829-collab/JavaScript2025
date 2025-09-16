@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제1</title>
+</head>
+<body>
+    <h3>문제 : 입력한 문자가 'y' 또는 'Y'면 "예", 아니면 "아니오"를 출력하세요.</h3>
+
+    <input type="text" id="letter" name="letter" />
+    <button type="button" onclick="letter()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function letter(){
+            let output = document.getElementById('output');
+            let letter = document.getElementById('letter').value;
+
+            if(letter == 'y' || letter == 'Y'){
+                output.innerHTML = `예`;
+                console.log(`input : ${letter}, ${output.innerHTML}`);
+            }else{
+                output.innerHTML = `아니오`;
+                console.log(`input : ${letter}, ${output.innerHTML}`);
+            }
+        }
+    </script>
+</body>
+</html>

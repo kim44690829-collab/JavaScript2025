@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연습문제5</title>
+</head>
+<body>
+    <input id="a" type="number" placeholder="첫 번째 숫자" />
+    <input id="b" type="number" placeholder="두 번째 숫자" />
+    <button type="button" onclick="calc()">계산</button>
+    <p id="output3"></p>
+
+    <script>
+        function calc(){
+            let inptxt = document.getElementById('output3');
+            let inputtext1 = Number(document.getElementById('a').value);
+            let inputtext2 = Number(document.getElementById('b').value);
+            console.log(`첫 번째 숫자 : ${inputtext1}, 두 번째 숫자: ${inputtext2}`);
+            // let result = inptxt.innerHTML = `합: ${inputtext1 + inputtext2}, 차: ${inputtext1 - inputtext2}, 곱: ${inputtext1 * inputtext2}
+            // 나누기: ${inputtext1 / inputtext2}`;
+            // console.log(`${result}`);
+
+            // 코드의 구조화
+            let add = inputtext1 + inputtext2;
+            let diff = inputtext1 - inputtext2;
+            let mul = inputtext1 * inputtext2;
+            let did = inputtext1 / inputtext2;
+            inptxt.innerHTML = `합: ${add}, 차: ${diff}, 곱: ${mul}, 나누기: ${did}`;
+            console.log(`${inptxt.innerHTML}`);
+        }
+
+        // && : and(그리고) 조건을 모두 만족할때 true, 하나라도 만족하지 못하면 false
+        // || : or(또는, 이거나) 조건 중 하나라도 만족하면 true, 하나도 만족하지 못하면 false 
+        // !  : not(반대) true라면 false가 출력, false라면 true가 출력 / 조건의 부정
+        // 엑셀이 40점 이상이면서 엑세스가 40점 이상이면서 평균이 60점 이상이면 컴활 '합격' 아니면 '불합격'
+
+        let num = 0;
+        let num2 = 60;
+        let avg = (num + num2) / 2
+        num >= 40 && num2 >= 40 && avg >= 60 ? '합격' : '불합격';
+        console.log(`avg: ${avg}, ${num >= 40 && num2 >= 40 && avg >= 60}`);
+    </script>
+</body>
+</html>

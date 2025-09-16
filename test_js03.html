@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연습문제3</title>
+</head>
+<body>
+    <button type="button" onclick="problem3()">
+        문제 3 : 문자열 연결
+    </button>
+    <p id="p3"></p>
+
+    <script>
+        function problem3(){
+            let pri = document.getElementById('p3');
+            let str1 = "Hello";
+            let str2 = "World";
+            console.log(`str1 : ${str1}, str2 : ${str2}`);
+            pri.innerHTML = `${str1} ${str2}`;
+        }
+
+        // % 의 의미 : 나머지 값을 구하는 기호
+        let a = 25;
+        let b = 2;
+        console.log(`a 를 b로 나눈 나머지 : ${a % b}`);
+        console.log(`a 를 b로 나눈 몫 : ${a / b}`);
+
+        // 삼항 연산자
+        // 조건 ? true 일때 값 : false 일때 값
+        // 조건 => 비교 대상, 비교 연산자, 비교 값
+        // 국어가 90이상이면 '수', 아니면 '재수강'
+        // 조건 : 국어 >= 90
+        // 국어 >= 90 ? '수' : '재수강'
+        // 결과 값 true = 1, false = 0
+        let eng = 89;
+        eng >= 90 ? '수' : '재수강';
+        console.log(`${eng >= 90 ? '수' : '재수강'}`);
+
+        // 다중 삼항 연산자
+        // 삼항연산자 사용하는 이유 = if 대용, 식이 간편
+        // eng가 90 이상이면 '수', 80 이상이면 '우', 그 이외에는 '재수강'
+        let result = eng >= 90 ? '수' : eng >= 80 ? '우' : '재수강';
+        console.log(`${result}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 연습문제2</title>
+</head>
+<body>
+    <button type="button" onclick="problem2()">
+        문제 2 : 두 수 더하기
+    </button>
+    <p id="p2"></p>
+
+    <script>
+        function problem2(){
+            let pri = document.getElementById('p2');
+            let num1 = 10;
+            let num2 = 5;
+            // 값이 제대로 출력되는지 디버깅을 위해 console을 찍는 것임.
+            console.log(`num1:${num1}, num2:${num2}`);
+            pri.innerHTML = `합계: ${num1 + num2}`;
+        }
+    </script>
+</body>
+</html>

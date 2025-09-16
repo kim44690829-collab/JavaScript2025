@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연습문제6</title>
+</head>
+<body>
+    <input id="num1" type="number" placeholder="숫자1"/>
+    <input id="num2" type="number" placeholder="숫자2"/>
+    <button type="button" onclick="compareNum()">비교</button>
+    <p id="output5"></p>
+
+    <script>
+        function compareNum(){
+            let output = document.getElementById('output5');
+            let number1 = Number(document.getElementById('num1').value);
+            let number2 = Number(document.getElementById('num2').value);
+            number1 > number2 ? true : number1 == number2 ? true : false;
+            // let numb1 = number1 > number2 ? true : false;
+            // let numb2 = number1 == number2 ? true : false;
+            // output.innerHTML = `n1 &gt n2 ? ${numb1}, n1 == n2 ? ${numb2}`;
+            // > 기호는 console에서 보면 &gt라고 표현됨.
+            output.innerHTML = `n1 &gt n2 ? ${number1 > number2}, n1 == n2 ? ${number1 == number2}`;
+            console.log(`number1 : ${number1}, number2 : ${number2}, ${output.innerHTML}`);
+            // NaN 오류 : Not a Number => 숫자가 아니다.
+        }
+    </script>
+</body>
+</html>

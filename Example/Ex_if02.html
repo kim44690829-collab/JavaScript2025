@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제1</title>
+</head>
+<body>
+    <h3>문제 : 영어 점수가 50 이상이고 수학 점수가 50 이상이면 "통과".</h3>
+
+    <input type="number" id="engScore" name="engScore" />
+    <input type="number" id="mathScore" name="mathScore" />
+    <button type="button" onclick="score()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function score(){
+            let output = document.getElementById('output');
+            let engScore = Number(document.getElementById('engScore').value);
+            let mathScore = Number(document.getElementById('mathScore').value);
+
+            if(engScore >= 50 && mathScore >= 50){
+                output.innerHTML = "통과"
+                console.log(`영어 점수 : ${engScore}, 수학 점수 : ${mathScore}, 결과 : ${output.innerHTML}`);
+            }else{
+                output.innerHTML = "불합격"
+                console.log(`영어 점수 : ${engScore}, 수학 점수 : ${mathScore}, 결과 : ${output.innerHTML}`);
+            }
+        }
+    </script>
+</body>
+</html>

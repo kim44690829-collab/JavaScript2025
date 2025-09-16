@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제1</title>
+</head>
+<body>
+    <h3>문제 : 사용자가 입력한 숫자가 1과 10 사이인지 확인</h3>
+    <input type="number" id="num" name="num" />
+    <button type="button" onclick="num()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function num(){
+            let output = document.getElementById('output');
+            let num = Number(document.getElementById('num').value);
+
+            if(1 <= num && num <= 10){
+                output.innerHTML = "범위 안에 있음";
+                console.log(`입력한 숫자 : ${num}, ${output.innerHTML}`);
+            }else{
+                output.innerHTML = "범위 안에 없음";
+                console.log(`입력한 숫자 : ${num}, ${output.innerHTML}`);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제1</title>
+</head>
+<body>
+    <h3>문제 : 온도가 0도 이하면 "영하", 0 ~ 30도는 "보통", 30도 이상은 "더움"</h3>
+    <input type="number" id="temp" name="temp" />
+    <button type="button" onclick="temp()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function temp(){
+            let output = document.getElementById('output');
+            let temp = Number(document.getElementById('temp').value);
+
+            if(temp <= 0){
+                output.innerHTML = '영하';
+                console.log(`현재 온도 : ${temp}, ${output.innerHTML}`);
+            }
+            if(0 < temp && temp < 30){
+                output.innerHTML = '보통';
+                console.log(`현재 온도 : ${temp}, ${output.innerHTML}`);
+            }
+            if(temp >= 30){
+                output.innerHTML = '더움';
+                console.log(`현재 온도 : ${temp}, ${output.innerHTML}`);
+            }
+            // 0 ~ 30 -> 0보다 크거나 같으면서 30보다 작거나 같다. 일반적으로 ~은 같다까지 포함하는 이상이하라고 보면 된다.
+        }
+    </script>
+</body>
+</html>

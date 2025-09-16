@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 실습문제1</title>
+</head>
+<body>
+    <button type="button" onclick="week()">요일 출력</button>
+    <input type="number" id="week" name="week">
+    <p id="output"></p>
+
+    <script>
+        function week(){
+            let output = document.getElementById('output');
+            let week = Number(document.getElementById('week').value);
+
+
+            // switch문에서 true 사용시 case에서 조건식이 들어가줘야 함.
+            // true가 아닌 변수를 집어넣으면 상관 없음.
+            switch(true){
+                case week == 1:
+                    console.log(`출력1`);
+                    output.innerHTML = '월요일';
+                    break;
+                case week == 2:
+                    console.log(`출력2`);
+                    output.innerHTML = '화요일';
+                    break;
+                case week == 3:
+                    console.log(`출력3`);
+                    output.innerHTML = '수요일';
+                    break;
+                case week == 4:
+                    console.log(`출력4`);
+                    output.innerHTML = '목요일';
+                    break;
+                case week == 5:
+                    console.log(`출력5`);
+                    output.innerHTML = '금요일';
+                    break;
+                case week == 6:
+                    console.log(`출력6`);
+                    output.innerHTML = '토요일';
+                    break;
+                case week == 7:
+                    console.log(`출력7`);
+                    output.innerHTML = '일요일';
+                    break;
+                
+            }
+        }
+    </script>
+</body>
+</html>

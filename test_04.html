@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연습문제4</title>
+</head>
+<body>
+    <button type="button" onclick="problem4()">
+        문제 4 : 조건문
+    </button>
+    <p id="p4"></p>
+    
+    <input id ="inputext" type="number" placeholder="숫자 입력">
+    <button type="button" onclick="inputpro()">확인</button>
+    <p id="input4"></p>
+
+    <script>
+        function problem4(){
+            let pri = document.getElementById('p4');
+            let num1 = 15;
+            const num2 = 2;
+            let result = pri.innerHTML = num1 % num2 == 1 ? '홀수입니다.' : '짝수입니다.';
+            console.log(`num1 = ${num1}, ${result}`);
+        }
+        
+        // input 태그에 입력된 모든 값은 문자 데이터 형시임.
+        // input 태그에 입력된 모든 값을 읽어 오려면 반드시 .value 매서드를 사용해야한다.
+        function inputpro(){
+            let inputtext = document.getElementById('input4');
+            // Number( ) => 괄호안의 인수를 숫자로 변경하는 함수
+            let inputtext2 = Number( document.getElementById('inputext').value );
+            console.log(`input의 입력 값 ${inputtext2}`);
+
+            inputtext.innerHTML = inputtext2 + 5;
+            console.log(`input의 값 더하기 5 : ${inputtxet.innerHTML}`);
+        }
+    </script>
+</body>
+</html>

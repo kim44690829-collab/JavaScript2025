@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h1>문제 11 : 정삼각형 줄의 개수는 6줄</h1>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let n = 5; //삼각형 높이
+        let result = '';
+        for(let i = 1; i <= n; i++){
+            // let blank = ''; //공백 누적하는 변수
+            // 공백만 출력하는 for문
+            for(let k = 1; k <= n-i; k++){
+                result += '&nbsp';
+            }
+            for(let j = 1; j <= (i*2-1); j++){
+                result += '*';
+            }
+            result += '<br/>';
+        }
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

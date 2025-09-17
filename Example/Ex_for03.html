@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h1>문제 10 : 2단 ~ 9단 출력</h1>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let result = '';
+        for(let i = 2; i <= 9; i++){
+            result = result + i + '단<br/>';
+            for(let j = 1; j <= 9; j++){
+                result = result + `${i} x ${j} = ${i*j}` + '<br/>';
+            }
+            // 단과 단 사이의 줄바꿈.
+            result = result + '<br/>';
+        }
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

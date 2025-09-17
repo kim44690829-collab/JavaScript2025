@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h1>문제 11 : 역 직각삼각형</h1>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let result = '';
+        let n = 7;
+        for(let i = 1; i <= n; i++){
+            for(let j = 1; j <= i; j++){
+                result += '&nbsp';
+            }
+            for(let k = 7; k >= i; k--){
+                result += '*';
+            }
+            result += '<br/>'
+        }
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h1>문제 7 : 1부터 ~ n까지의 합</h1>
+    <input type="number" id="inpnum" />
+    <button type="button" onclick="sum()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        // 전역변수 : 스크립트 안 모든 곳에서 사용하기 위해.
+            let result = '';
+            let output = document.getElementById('output');
+
+        // function sum(){
+            
+        //     let inpnum = Number(document.getElementById('inpnum').value);
+        
+        //     for(let i = 1; i <= inpnum; i++){
+        //         result = result + i;
+        //     }
+        //     output.innerHTML = `1부터 ${inpnum}까지의 합 : ${result}`;
+        // }
+        
+
+        // 다중 for문
+        // for문 안에 for문이 존재하는 것.
+        for(let i = 1; i <= 3; i++ ){ //바깥 루프 (가로줄 3번)
+            for(let j = 1; j <= i; j++){ //안 루프 (별의 개수)
+                // \n => 줄바꿈.
+                result = result + '*';
+            }
+            result = result + '<br/>';
+        }
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

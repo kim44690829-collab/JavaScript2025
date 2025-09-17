@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h1>문제 6 : 1부터 20까지 짝수 출력</h1>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let result = '';
+        for(let i = 1; i <= 20; i++){
+            if(i % 2 == 0){
+                result += i + ' ';
+            }
+        }
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

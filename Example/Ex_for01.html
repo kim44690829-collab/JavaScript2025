@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h1>문제:1부터 10까지 출력</h1>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        // 결과를 담을 변수 초기화
+        // let result = 0;
+        // for(let i = 1; i <= 10; i++){
+        //     result = result + i + ' ';
+        // }
+        // output.innerHTML = result;
+        let result = 0;
+        for(let i = 10; i >= 1; i--){
+            result = result + i + ' ';
+        }
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

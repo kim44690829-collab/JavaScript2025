@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 while</title>
+</head>
+<body>
+    <script>
+        // 전위 연산자 ++a
+        // let a = 0;
+        // a = a + 1; => 누적 공식
+        // a = 0 + 1; => a = 1;
+        // a = a + 1;
+        // a = 1 + 1; => a = 2;
+        let a = 1;
+        let b = ++a;
+        console.log(b);
+        // 누적된 후 b에 저장
+
+        // 후위 연산자 a++
+        // let a = 0;
+        // a = a => 그 후 1을 더함.
+        // a = 0 => 그 후 a = 0 + 1;
+        c = 1;
+        k = c++;
+        console.log(k);
+        // k에 저장된 후 누적
+
+        // 1부터 5까지 출력하는 while문 작성
+        let num = 1; //초기값
+        // while은 조건이 true면 무한 루프를 돈다.
+        // 조건이 false가 되면 루프를 탈출하여 다음 코드로 이동한다. 
+        while(num <= 5){
+            console.log(num);
+            // 1씩 누적하는 코드가 필요함.
+            num++;
+        }
+        console.log(`조건 false 후 : ${num}`);
+
+        // 10부터 1까지 거꾸로 출력하기
+        // while문으로
+        let num1 = 10;
+        while(1 <= num1){
+            console.log(num1);
+            num1--;
+        }
+        console.log(`조건 false 후 : ${num1}`);
+
+        // 1부터 20까지 수 중 짝수의 값만 출력
+        // while, if 사용
+        let num2 = 1;
+        let count = 0; //조건에 만족하는 개수를 세기 위한 변수 초기화
+        while(num2 <= 20){
+            if(num2 % 2 == 0){
+                console.log(num2);
+                count++; //조건에 만족했을 때 1씩 누적
+            }
+            num2++;
+        }
+        console.log(`조건 false 후 : ${num2}`);
+        console.log(`짝수의 개수 : ${count}`);
+
+        // 1부터 10까지의 합을 구하라
+        let num3 = 1;
+        let sum = 0;
+        while(num3 <= 10){
+            sum = sum + num3;
+            // 루프 1 => 1 = 0 + 1
+            // 루프 2 => 3 = 1 + 2
+            // 루프 3 => 6 = 3 + 3
+            // 루프 4 => 10 = 6 + 4
+            // 루프 5 => 15 = 10 + 5
+            // 루프 6 => 21 = 15 + 6
+            // 루프 7 => 28 = 21 + 7
+            // 루프 8 => 36 = 28 + 8
+            // 루프 9 => 45 = 36 + 9
+            // 루프 10 => 55 = 45 + 10
+            num3++;
+            // 루프 1 num3 = 2;
+            // 루프 2 num3 = 3;
+            // 루프 3 num3 = 4;
+            // 루프 4 num3 = 5;
+            // 루프 5 num3 = 6;
+            // 루프 6 num3 = 7;
+            // 루프 7 num3 = 8;
+            // 루프 8 num3 = 9;
+            // 루프 9 num3 = 10;
+            // 루프 10 num3 = 11; -> false 빠져나감.
+        }
+        console.log(sum);
+
+        // do ~ while문은 조건의 만족 유무를 떠나 무조건 한번은 실행된다.
+        // 한번 실행된 후 조건을 인식한다. 
+        // true일때 루프, false일때 빠져나간다.
+        let p = 1;
+        do{
+            console.log('do while')
+        }while(p == 0);
+    </script>
+</body>
+</html>

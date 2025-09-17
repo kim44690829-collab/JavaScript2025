@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 반복문</title>
+</head>
+<body>
+    <script>
+        // 1부터 10까지 콘솔에 출력
+        // for(let 초기변수-대체로 i -> j -> k ; 조건식 ; 증감값 ){}
+        // for문을 읽는 순서: 초기변수 -> 조건식 -> 코드(실행문) -> 증감값
+        // for(let i = 1; i <= 10; i++){
+        //     console.log(i + ' ');
+        // }
+
+        // for문과 if문을 이용해서 1부터 20까지 중 홀수를 출력
+        // for(let j = 1; j <= 20; j++){
+        //     if(j % 2 == 1){
+        //         console.log(j + ' ');
+        //     }
+        // }
+
+        // 1부터 20까지 수 중 짝수의 합과 홀수의 합을 각각 구하여 출력하라.
+        let evenTotal = 0; //짝수
+        let oddTotal = 0; //홀수
+        for(let i = 1; i <= 20; i++){
+            if(i % 2 == 0){
+                evenTotal = evenTotal + i; // evenTotal += i
+            }else{
+                oddTotal = oddTotal + i; // oddTotal += i
+            }
+        }
+        console.log(evenTotal);
+        console.log(oddTotal);
+
+        // 50부터 100까지의 수 중 홀수의 개수를 구하여 출력하세요.
+        let count = 0;
+        for(let j = 50; j <= 100; j++){
+            if(j % 2 == 1){
+                console.log(j);
+                count++;
+            }
+        }
+        console.log(`홀수의 개수 : ${count}`);
+
+        // 구구단 5단 출력 5 x 1 = 5
+        
+        for(let k = 1; k <= 9; k++){
+            let num = 5;
+            let mul = num * k;
+            console.log(`${num} x ${k} = ${mul}`);
+        }
+        
+    </script>
+</body>
+</html>

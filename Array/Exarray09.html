@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 학습</title>
+</head>
+<body>
+    <label>2번 숫자 배열입력(예:12,7,5,20,33,18):</label>
+    <input type="text" id="numberInput" />
+    <button type="button" onclick="numberClick()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        function numberClick(){
+            let output = document.getElementById('output');
+            let numbers = [];
+            let numbersInput = document.getElementById('numberInput').value;
+            let resultEven = '';
+            let resultOdd = '';
+
+            numbers = numbersInput.split(',').map(Number);
+            // console.log(numbers);
+
+            for(let i = 0; i <= numbers.length - 1; i++){
+                if(numbers[i] % 2 == 0){
+                    resultEven += numbers[i] + ','; 
+                }else{
+                    resultOdd += numbers[i] + ',';
+                }
+            }
+            // 배열 이름.slice(start array, end array) => end array -1 까지 출력
+            // slice(start array, end array) => 양수면 왼쪽에서 오른쪽
+                                        //      음수면 오른쪽에서 왼쪽으로
+            resultEven = resultEven.slice(0,-1);
+            resultOdd = resultOdd.slice(0,-1);
+            output.innerHTML = `짝수: ${resultEven} / 홀수: ${resultOdd}`;
+        }
+    </script>
+</body>
+</html>

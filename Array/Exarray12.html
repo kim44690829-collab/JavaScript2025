@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 학습</title>
+</head>
+<body>
+    <label>5번 장바구니 가격 배열 입력 (예: 12000, 5000, 15000, 3000, 7000):</label>
+    <input type="text" id="shopInput" />
+    <button type="button" onclick="shopClick()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        function shopClick(){
+            let output = document.getElementById('output');
+            let cart = [];
+            let shopInput = document.getElementById('shopInput').value;
+            // split(',').map(Number)
+            // input입력된 값을 숫자배열로 "다시 생성"함.
+            // 숫자배열로 만드는 이유 => 가격을 비교해야 하니까.
+            cart = shopInput.split(',').map(Number);
+            let result = '';
+            // console.log(cart);
+            for(let i = 0; i <= cart.length - 1; i++){
+                // if(cart[i] >= 10000){
+                //     result += cart[i] + ' : ' + '고가, ';
+                // }else if(cart[i] >= 5000){
+                //     result += cart[i] + ' : ' + '중저가, ';
+                // }else{
+                //     result += cart[i] + ' : ' + '저가, ';
+                // }
+
+                // trim은 공백이라는 '문자'를 제거하는 함수
+                switch(true){
+                    case cart[i] >= 10000:
+                        result += cart[i] + ' : ' + '고가, ';
+                        break;
+                    case cart[i] >= 5000:
+                        result += cart[i] + ' : ' + '중저가, ';
+                        break;
+                    default:
+                        result += cart[i] + ' : ' + '저가, ';
+                        break;
+                }
+            }
+            result = result.slice(0,-2);
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

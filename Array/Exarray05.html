@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 기초 연습문제</title>
+</head>
+<body>
+    <h1>문제 : scores 배열, 80이상 합격, 아니면 불합격</h1>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let scores =[90,75,88,60];
+        let result = '';
+        
+        for(let i = 0; i <= scores.length - 1; i++){
+            if(scores[i] >= 80){
+                result += '합격' + ' ';
+                output.innerHTML = result;
+            }else{
+                result += '불합격' + ' ';
+                output.innerHTML = result;
+            }
+        }
+    </script>
+</body>
+</html>

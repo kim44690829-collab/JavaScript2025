@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 학습</title>
+</head>
+<body>
+    <label>3번 출석 배열 입력(출석, 결석, 지각) (예: 출석,결석,출석,지각,출석):</label>
+    <input type="text" id="attendanceInput" />
+    <button type="button" onclick="attendanceClick()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        function attendanceClick(){
+            let output = document.getElementById('output');
+            let attendance = [];
+            let result = '';
+            let attendanceInput = document.getElementById('attendanceInput').value;
+
+            attendance = attendanceInput.split(',');
+            // console.log(attendance);
+            
+            for(let i = 0; i <= attendance.length-1; i++){
+                // if문
+                // === : 자바스크립트에서만 사용 가능한 더 정확하게 같냐고 물어보는 기호
+                // if(attendance[i] === '출석'){
+                //     result += 'O' + ', ';
+                // }
+                // if(attendance[i] === '결석'){
+                //     result += 'X' + ', ';
+                // }
+                // if(attendance[i] === '지각'){
+                //     result += '△' + ', ';
+                // }
+
+
+                // trim() => 왼쪽 오른쪽 공백을 제거하는 함수 , 띄어쓰기의 공백은 제거 불가.
+                // if(attendance[i].trim() === '출석'){
+                //     result += 'O' + ', ';
+                //     console.log('1',result);
+                // }else if(attendance[i].trim() === '결석'){
+                //     result += 'X' + ', ';
+                //     console.log('2',result);
+                // }else{
+                //     result += '△' + ', ';
+                //     console.log('3',result);
+                    
+                // }
+
+
+                // switch문
+                // switch(true){
+                //     case attendance[i] == '출석':
+                //         result += 'O' + ', ';
+                //         break;
+                //     case attendance[i] == '결석':
+                //         result += 'X' + ', ';
+                //         break;
+                //     case attendance[i] == '지각':
+                //         result += '△' + ', ';
+                //         break;
+                // }
+
+                switch(attendance[i]){
+                    case '출석':
+                        result += 'O' + ', ';
+                        break;
+                    case '결석':
+                        result += 'X' + ', ';
+                        break;
+                    default:
+                        result += '△' + ', ';
+                        break;
+                }
+
+
+                // 삼항연산자
+                // result += attendance[i] == '출석' ? 'O ' : attendance[i] == '결석' ? 'X ' : '△ ';
+            }
+            result = result.slice(0,-2);
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

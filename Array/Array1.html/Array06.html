@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 6</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: rgb(114, 202, 114);
+            box-sizing: border-box;
+        }
+        .container{
+            width: 500px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgb(2, 58, 2);
+            box-shadow: 10px 10px 3px rgba(0,0,0,0.5);
+        }
+        .container h1{
+            text-align: center;
+            color: white;
+        }
+        .container input{
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid white;
+        }
+        .container input::placeholder{
+            color: green;
+        }
+        .container input:focus{
+            border: 1px solid green;
+        }
+        .container input:focus::placeholder{
+            visibility: hidden;
+        }
+        .container button{
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid white;
+            color: green;
+        }
+        .container button:hover{
+            cursor: pointer;
+            background-color: green;
+            color: white;
+        }
+        .container p{
+            margin: 10px auto;
+            color: white;
+        }
+        span.big{
+            color: rgb(138, 138, 224);
+        }
+        span.small{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>학생 키 비교</h1>
+        <input type="text" id="studentName" placeholder="학생 이름을 입력해주세요." />
+        <input type="text" id="studentHeight" placeholder="학생의 키를 입력해주세요." />
+        <button type="button" onclick="height()">키 확인</button>
+        <p id="output"></p>
+    </div>
+    <script>
+        function height(){
+            let output = document.getElementById('output');
+            let result = '';
+
+            let name = [];
+            let studentName = document.getElementById('studentName').value;
+            name = studentName.split(',');
+
+            let height = [];
+            let studentHeight = document.getElementById('studentHeight').value;
+            height = studentHeight.split(',').map(Number);
+
+            for(let i = 0; i <= name.length - 1; i++){
+                result += name[i] + ' : ' + height[i] + 'cm - ';
+                if(height[i] >= 170){
+                    result += "<span class='big'>키 큰 학생</span><br/>";
+                }else{
+                    result += "<span class='small'>키 작은 학생</span><br/>";
+                }
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

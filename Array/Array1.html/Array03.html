@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 3</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: #999;
+        }
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: #666;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+        .container h1{
+            text-align: center;
+            color: white;
+        }
+        .container input{
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 7px;
+            background-color: white;
+            border: 1px solid black;
+            outline: none;
+        }
+        .container input::placeholder{
+            color: #666;
+        }
+        .container button{
+            padding: 5px;
+            font-size: 20px;
+            border-radius: 7px;
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+        }
+        .container button:hover{
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+        table{
+            width: 400px;
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+            background-color: white;
+            margin: 0 auto;
+        }
+        table tr th{
+            color: rgb(0, 0, 0);
+            border-bottom: 1px solid black;
+        }
+        table tr td{
+            color: black;
+            border-bottom: 1px solid black;
+            
+        }
+        td.highPrice{
+            color: red;
+        }
+        td.rowPrice{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>상품 가격 비교</h1>
+        <input type="text" id="productName" placeholder="상품을 입력해주세요" />
+        <input type="text" id="productPrice" placeholder="가격을 입력해주세요."/>
+        <button type="button" onclick="product()">상품 출력</button>
+        <p id="output"></p>
+    </div>
+
+
+    <script>
+        function product(){
+            let output = document.getElementById('output');
+            let result = '<table><tr><th>상품</th><th>가격</th><th>등급</th></tr>';
+            let name = [];
+            let productName = document.getElementById('productName').value;
+            name = productName.split(',');
+
+            let price = [];
+            let productPrice = document.getElementById('productPrice').value;
+            price = productPrice.split(',').map(Number);
+
+            for(let i = 0; i <= name.length - 1; i++){
+                result += `<tr><td>${name[i]}</td><td>${price[i]}원</td>`;
+                if(price[i] >= 50000){
+                    result += `<td class="highPrice">고가</td></tr><br/>`;
+                }else{
+                    result += `<td class="rowPrice">저가</td></tr><br/>`;
+                }
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

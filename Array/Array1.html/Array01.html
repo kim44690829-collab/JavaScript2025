@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 1</title>
+    <style>
+        .container form{
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .container form input{
+            display: inline-block;
+            width: 500px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .container form button{
+            width: 524px;
+            padding: 10px;
+        }
+        span.pass{
+            color: green;
+        }
+        span.nonPass{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="get">
+            <fieldset>
+                <legend>학생 성적표</legend>
+                    <input type="text" id="studentName" placeholder="학생 이름을 입력해주세요." /> <br />
+                    <input type="text" id="studentScore" placeholder="학생 성적을 입력해주세요." /> <br />
+                    <button type="button" onclick="score()">성적표 출력</button>
+                    <p id="output"></p>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        function score(){
+            let output = document.getElementById('output');
+            let result = '';
+            let name = [];
+            let studentName = document.getElementById('studentName').value;
+            name = studentName.split(',');
+            let score = [];
+            let studentScore = document.getElementById('studentScore').value;
+            score = studentScore.split(',').map(Number);
+
+            for(let i = 0; i <= name.length - 1; i++){
+                result += name[i] + ' : ' + score[i] + '점 - ';
+                if(score[i] >= 60){
+                    result += '<span class="pass"> 합격 </span><br/>';
+                    console.log(result);
+                }else{
+                    result += '<span class="nonPass"> 불합격 </span> <br/>';
+                    console.log(result);
+                }
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

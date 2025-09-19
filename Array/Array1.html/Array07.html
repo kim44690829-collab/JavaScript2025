@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 7</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 500px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            border: 3px solid white;
+            padding: 20px;
+        }
+        .container h1{
+            text-align: center;
+            color: rgb(0, 104, 104);
+        }
+        .container input{
+            padding: 17px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid aqua;
+            outline: none;
+        }
+        .container input::placeholder{
+            color: rgb(17, 156, 156);
+        }
+        .container input:focus::placeholder{
+            visibility: hidden;
+        }
+        .container button{
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid aqua;
+            color: rgb(17, 156, 156);
+        }
+        .container button:hover{
+            background-color: rgb(17, 156, 156);
+            cursor: pointer;
+            color: white;
+        }
+        .container p{
+            color: rgb(0, 75, 75);
+            margin: 20px auto;
+        }
+        span.high{
+            color: red;
+        }
+        span.low{
+            color: rgb(0, 75, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>음식 칼로리 체크</h1>
+        <input type="text" id="foodName" placeholder="음식 이름을 적어주세요." />
+        <input type="text" id="foodCalorie" placeholder="음식 칼로리를 적어주세요." />
+        <button type="button" onclick="food()">칼로리 확인</button>
+        <p id="output"></p>
+    </div>
+    <script>
+        function food(){
+            let output = document.getElementById('output');
+            let result = '';
+            
+            let name = [];
+            let foodName = document.getElementById('foodName').value;
+            name = foodName.split(',');
+
+            let calorie = [];
+            let foodCalorie = document.getElementById('foodCalorie').value;
+            calorie = foodCalorie.split(',').map(Number);
+
+            for(let i = 0; i <= name.length - 1; i++){
+                result += name[i] + ' : ' + calorie[i] + 'kcal - ';
+                // if(calorie[i] >= 500){
+                //     result += '<span class="high">고칼로리</span><br/>';
+                // }else{
+                //     result += '<span class="low">저칼로리</span><br/>';
+                // }
+                result += calorie[i] >= 500 ? '<span class="high">고칼로리</span><br/>' : '<span class="low">저칼로리</span><br/>';
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

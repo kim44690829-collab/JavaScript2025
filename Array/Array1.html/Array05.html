@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 5</title>
+    <style>
+        body{
+            background-color: rgb(180, 127, 230);
+        }
+        .container{
+            font-family: sans-serif;
+            width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid purple;
+            padding: 20px;
+            background-color: rgb(219, 190, 247);
+            border-radius: 5px;
+            box-shadow: 5px 5px 6px purple;
+        }
+        .container h1{
+            text-align: center;
+            color: purple;
+        }
+        .container input{
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid purple;
+            border-radius: 3px;
+            outline: none;
+        }
+        .container input::placeholder{
+            color: purple;
+        }
+        .container input:focus::placeholder{
+            visibility: hidden;
+        }
+        .container button{
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid purple;
+            color: purple;
+        }
+        .container button:hover{
+            cursor: pointer;
+            background-color: purple;
+            color: white;
+        }
+        .container p{
+            margin: 10px auto;
+            padding: 20px;
+            color: purple;
+        }
+        span.recommend{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>영화 평점 분석</h1>
+        <input type="text" id="movieName" placeholder="영화 이름을 입력해주세요." />
+        <input type="text" id="movieGrade" placeholder="평점을 입력해주세요." />
+        <button type="button" onclick="movie()">평점 확인</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function movie(){
+            let output = document.getElementById('output');
+            let result = '';
+
+            let name = [];
+            let movieName = document.getElementById('movieName').value;
+            name = movieName.split(',');
+
+            let grade = [];
+            let movieGrade = document.getElementById('movieGrade').value;
+            grade = movieGrade.split(',').map(Number);
+
+            for(let i = 0; i <= name.length - 1; i++){
+                if(grade[i] >= 8){
+                    result += name[i] + ' : ' + grade[i] + '점' + '<span class="recommend"> "추천"</span><br/>';
+                }else{
+                    result += name[i] + ' : ' + grade[i] + '점<br/>';
+                }
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

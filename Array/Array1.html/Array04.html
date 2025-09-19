@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 4</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 3px;
+            box-shadow: 10px 10px 5px rgba(0,0,0,0.5) ;
+        }
+        .container h1{
+            text-align: center;
+        }
+        .container input{
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .container button{
+            padding: 10px;
+        }
+        .container button:hover{
+            cursor: pointer;
+            color: white;
+            background-color: black;
+        }
+        .container p{
+            margin: 10px auto;
+        }
+        span.first{
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>투표 결과</h1>
+        <input type="text" id="userName" placeholder="이름을 입력해주세요." />
+        <input type="text" id="userVote" placeholder="이름을 입력해주세요." />
+        <button type="button" onclick="vote1()">투표 집계</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function vote1(){
+            let output = document.getElementById('output');
+            let result = '';
+            // let i = 1;
+            let max = 0;
+            // console.log('일');
+
+            let name = [];
+            let userName = document.getElementById('userName').value;
+            name = userName.split(',');
+            // console.log('이');
+
+            let vote = [];
+            let check=0;
+            let userVote = document.getElementById('userVote').value;
+            vote = userVote.split(',').map(Number);
+            // console.log('삼');
+
+            for(let i = 0; i <= name.length - 1; i++){
+                // console.log(i);
+                if(vote[i] >= max){
+                    max = vote[i];
+                    check = i;
+                    console.log(i);
+                }
+            }
+            for(let j = 0; j <= vote.length - 1; j++){
+                // console.log(i,check);
+                if(vote[j] == vote[check] ){
+                    result += name[j] + ' : ' + vote[j] +'<span class="first">  "1등" </span>' + '<br/>';
+                }else{
+                    result += name[j] + ' : ' + vote[j] + '<br/> ';
+                }
+                // switch(true){
+                //     case vote[j] == vote[check]:
+                //         result += name[j] + ' : ' + vote[j] +'<span class="first">  "1등" </span>' + '<br/>';
+                //         break;
+                //     default:
+                //         result += name[j] + ' : ' + vote[j] + '<br/> ';
+                //         break;
+                // }
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

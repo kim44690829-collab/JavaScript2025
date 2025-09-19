@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 총 복습 문제 2</title>
+    <style>
+        body{
+            background-color: #999;
+        }
+        #container{
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid gray;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            background-color: #eee;
+        }
+        #container h1{
+            text-align: center;
+            color: #333;
+        }
+        #container form{
+            display: flex;
+            flex-direction: column;
+        }
+        #container form input{
+            margin: 10px;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid gray;
+            outline: none;
+        }
+        #container form button{
+            margin: 10px;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid gray;
+        }
+        #container form button:hover{
+            cursor: pointer;
+            background-color: #999;
+            color: white;
+        }
+        #container form p{
+            text-align: center;
+        }
+        span.lack{
+            color: red;
+        }
+        span.enough{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>책 재고 현황</h1>
+        <form action="" method="get">
+            <button type="button" onclick="book()">재고 확인</button>
+            <input type="text" id="bookName" placeholder="책 이름을 입력해주세요." />
+            <input type="text" id="bookCount" placeholder="책의 권수를 입력해주세요." />
+            <p id="output"></p>
+        </form>
+    </div>
+
+    <script>
+        function book(){
+            let output = document.getElementById('output');
+            let result = '';
+            console.log('일');
+            
+            let book = [];
+            let bookName = document.getElementById('bookName').value;
+            book = bookName.split(',');
+            console.log('이');
+
+            let count = [];
+            let bookCount = document.getElementById('bookCount').value;
+            count = bookCount.split(',').map(Number);
+            console.log('삼');
+
+            for(let i = 0; i <= book.length - 1; i++){
+                result += book[i] + ' : ' + count[i] + '권 - ';
+                console.log('사');
+                if(count[i] >= 5){
+                    result += '<span class="enough">재고 충분</span><br/>';
+                }else{
+                    result += '<span class="lack">재고 부족</span><br/>';
+                }
+                console.log('오');
+            }
+            output.innerHTML = result;
+            console.log('육');
+        }
+    </script>
+</body>
+</html>

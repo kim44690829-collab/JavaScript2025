@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 실습문제3</title>
+</head>
+<body>
+    <h1>5. 성적 분석 프로그램</h1>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <script>
+        let output1 = document.getElementById('output1');
+        let output2 = document.getElementById('output2');
+        let output3 = document.getElementById('output3');
+        let names = ['홍길동','개나리','진달래'];
+        let subjects = ['국어','영어','수학'];
+        let scores = [
+            [85,90,78],
+            [92,88,95],
+            [76,85,83]
+        ];
+        let result = '';
+        let sum = 0;
+        let avg = 0;
+        let max = 0;
+        let chkp = '';
+
+        output1.innerHTML += `[학생별 총점과 평균]<br/>`;
+        for(let i = 0; i < scores.length; i++){
+            sum = 0;
+            avg = 0;
+            for(let j = 0; j < scores[i].length; j++){
+                sum += scores[i][j];
+                avg = (sum / scores[i].length).toFixed(1);
+            }
+            output1.innerHTML += `${names[i]} 총점 : ${sum}, 평균 : ${avg} <br/>`;
+        }
+
+        output2.innerHTML += `[과목별 평균]<br/>`;
+        for(let i = 0; i < scores.length; i++){
+            sum = 0;
+            avg = 0;
+            for(let j = 0; j < scores.length; j++){
+                sum += scores[j][i];
+                avg = (sum / scores.length).toFixed(1);
+            }
+            output2.innerHTML += `${subjects[i]} 평균 : ${avg}<br/>`;
+        }
+
+        for(let i = 0; i < scores.length; i++){
+            for(let j = 0; j < scores[i].length; j++){
+                if(scores[i][j] > max){
+                    max = scores[i][j];
+                    chkp = names[i];
+                }
+            }
+        }
+        output3.innerHTML += `[최고 점수 학생]<br/>`;
+        output3.innerHTML += `${chkp} (${max})`;
+
+    </script>
+</body>
+</html>

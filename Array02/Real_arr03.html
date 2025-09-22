@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 실습문제3</title>
+</head>
+<body>
+    <h1>3. 달력 만들기(6 x 7)</h1>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let result = '<table border="1">';
+        const weekdays = ['일','월','화','수','목','금','토'];
+        let month = Array.from(Array(6), () => new Array(7));
+        // 시작일 및 끝 일
+        let day = 1;
+        let lastDay = 31;
+
+        // weekdays
+        result += '<tr>';
+        for(let i = 0; i < weekdays.length; i++){
+            result += `<th>${weekdays[i]}</th>`;
+        }
+        result += '</tr>';
+        
+        // 날짜 채우기
+        for(let i = 0; i < month.length; i++){
+            result += '<tr>';
+            for(let j = 0; j < month[i].length; j++){
+                if(day <= 31){
+                    // month[i][j] = day;
+                    result += `<td>${day++}</td>`
+                    // result += `<td> ${day} </td>`
+                    // day++;
+                }else{
+                    result += '<td></td>';
+                }
+            }
+            result += '</tr>';
+            // 빈 줄이 생기는 문제 해결
+            if(day > lastDay) break; //break : 멈추고 빠져나와라.
+        }
+        result += '</table>';
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

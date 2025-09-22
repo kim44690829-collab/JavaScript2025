@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 연습</title>
+</head>
+<body>
+    <script>
+        // 2차원 배열 생성 => arr=[['a','b']['c','d']];
+        let arr = [
+            ['a','b'],
+            ['c','d'],
+            ['e','f']
+        ];
+
+        // 다중 for문을 이용해서 출력
+        // 바깥쪽 행의 개수 루프 for
+        for(let i = 0; i < arr.length; i++){
+            // i = 0 => j = 0, j = 1 : arr[i].length => 열의 개수 : 2
+            // arr[i][j] => arr[0][0], arr[0][1]
+            // 안쪽 열의 개수 루프 for
+            for(let j = 0; j < arr[i].length; j++){
+                console.log(arr[i][j]);
+            }
+        }
+
+        // ES6버전 브라우저에서만 사용가능한 2차원 배열 생성 방식
+        // 빈 배열로 생성됨.
+        // arr01 = Array.from(Array(6), () => new Array(7)) => 화살표 함수 만드는 방법
+        //                => 행의 개수       => 배열 방을 7개 생성한다.(열의 개수)
+        // => arr01 = [[열 7개],[열 7개],[열 7개],[열 7개],[열 7개],[열 7개]]
+
+        // let arr01 = Array.from(Array(6), () => new Array(7).fill('X'));
+
+        // 값 채워서 콘솔 출력
+        // i = 0 => j = 0, j = 1, j = 2, j = 3, j = 4, j = 5,j = 6
+        // arr[0][0] = 0;
+        // arr[0][1] = 0;
+        // arr[0][2] = 0;
+        // arr[0][3] = 0;
+        // arr[0][4] = 0;
+        // arr[0][5] = 0;
+        // arr[0][6] = 0;
+        
+        // for(let i = 0; i < arr01.length; i++){
+        //     // console.log(arr01[i]);
+        // }
+
+        // 왼쪽 위 -> 오른쪽 아래 대각선만 1로 채우기, 나머지 0
+        let arr03 = Array.from(Array(3), () => new Array(3).fill(0));
+
+        // for(let i = 0; i < arr03.length; i++){
+        //     // console.log(arr03[i]);
+        //     for(let j = 0; j < arr03[i].length; j++){
+        //         if(i == j){
+        //             arr03[i][j] = 1;
+        //         }
+        //     }
+        //     console.log(arr03[i]);
+        // }
+
+        // for(let i = 0; i < arr03.length; i++){
+        //     for(let j = i; j <= i; j++){
+        //         arr03[i][j] = 1;
+        //     }
+        // }
+        // for(let i = 0; i < arr03.length; i++){
+        //     console.log(arr03[i]);
+        // }
+
+        // 2행 4열짜리 배열 생성 후 1부터 8까지 채우기
+        // let arr04 = Array.from(Array(2), () => new Array(4).fill(0));
+        // 1 2 3 4
+        // 5 6 7 8
+        // let num = 1;
+        // for(let i = 0; i < arr04.length; i++){
+        //     for(let j = 0; j < arr04[i].length; j++){
+        //        arr04[i][j] = num++;
+        //     }
+        // }
+        // for(let i = 0; i < arr04.length; i++){
+        //     console.log(arr04[i]);
+        // }
+
+        // 4행, 4열 배열, 짝수열은 0, 홀수열은 1 변수는 arr05
+        let arr05 = Array.from(Array(4), () => new Array(4).fill(0));
+        // 1 0 1 0
+        // 1 0 1 0
+        // 1 0 1 0
+        // 1 0 1 0
+        // index + 1을 해야 홀수열
+        // (0,0),(1,0),(2,0),(3,0)
+        // (0,3)(1,3),(2,3),(3,3)
+
+        for(let i = 0; i < arr05.length; i++){
+            for(let j = 0; j < arr05[i].length; j++){
+                if((j+1) % 2 == 1){
+                    arr05[i][j] = 1;
+                }
+            }
+            console.log(arr05[i]);
+        }
+
+        // 합 구하기
+        let arr06 = [
+            [1,2,3],
+            [4,5,6]
+        ];
+        let sum = 0;
+
+        // for(let i = 0; i < arr06.length; i++){
+        //     for(let j = 0; j < arr06[i].length; j++){
+        //         sum += arr06[i][j];
+        //     }
+        // }
+        // console.log(sum);
+
+        // arr06 배열을 이용하여 행별의 합을 구하라
+        for(let i = 0; i < arr06.length; i++){
+            for(let j = 0; j < arr06[i].length ; j++){
+                sum += arr06[i][j];
+            }
+            console.log(sum);
+            sum = 0;
+        }
+
+        // 최대값 찾기
+        let arr07 = [
+            [3,9,2],
+            [8,7,6],
+            [1,4,5]
+        ];
+        let max = 0;
+        
+        for(let i = 0; i < arr07.length; i++){
+            for(let j = 0; j <arr07[i].length; j++){
+                if(arr07[i][j] > max){
+                    max = arr07[i][j];
+                }
+            }
+        }
+        console.log(max);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 실습문제3</title>
+    <style>
+        .container p{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .imgs{
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>이미지 배열</h1>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        let output = document.getElementById('output');
+        let img = [
+            ["https://picsum.photos/id/1011/400/300",'산'],
+            ["https://picsum.photos/id/1025/400/300",'강아지'],
+            ["https://picsum.photos/id/1003/400/300",'건물'],
+            ["https://picsum.photos/id/1035/400/300",'해변'],
+            ["https://picsum.photos/id/1040/400/300",'숲']
+        ];
+        let result = '';
+
+        for(let i = 0; i < img.length; i++){
+            for(let j = 0; j < img.length; j++){
+                result += `<img src ="${img[j][i]}" class="imgs">`;
+                result += img[j][i+1];
+            }
+            break;
+        }
+        output.innerHTML = result;
+        
+    </script>
+</body>
+</html>

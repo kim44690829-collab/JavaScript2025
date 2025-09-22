@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 실습문제1</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let arr01 = Array.from(Array(5), () => new Array(5));
+        let result = '<table border="1">';
+        let num = 1;
+        
+        for(let i = 0; i < arr01.length; i++){
+            result += '<tr>'
+            for(let j = 0; j < arr01[i].length; j++){
+                result += `<td>${num++}</td>`;
+            }
+            result += '</tr>';
+        }
+        result += '</table>';
+        output.innerHTML = result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 실습문제3</title>
+</head>
+<body>
+    <h1>4. 상품 재고 현황</h1>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let stock = [
+            [10,5,8,12],
+            [20,15,18,25],
+            [30,25,28,15]
+        ];
+        let result = '';
+        let sum = 0;
+
+        for(let i = 0; i < stock.length; i++){
+            result = '';
+            sum = 0;
+            for(let j = 0; j < stock[i].length; j++){
+                result += stock[i][j] + ', ';
+                sum += stock[i][j];
+            }
+            result = result.slice(0,-2);
+            output.innerHTML += `카테고리 ${i+1} : ${result} | 총재고 : ${sum} <br/>`;
+        }
+    </script>
+</body>
+</html>

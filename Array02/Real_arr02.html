@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 실습문제1</title>
+</head>
+<body>
+    <h1>2.성적표 (총점과 평균 계산)</h1>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let result = '';
+        let scores = [
+            [85,90,80],
+            [70,60,75],
+            [95,100,90]
+        ];
+        let sum = 0;
+        let avg = 0;
+
+        for(let i = 0; i < scores.length; i++){
+            result = '';
+            sum = 0;
+            avg = 0;
+            for(let j = 0; j < scores[i].length; j++){
+                result += scores[i][j] + ', ';
+                sum += scores[i][j];
+                avg = (sum / scores[j].length).toFixed(2);
+            }
+            result = result.slice(0,-2);
+            output.innerHTML += `학생 ${i+1} : ${result} | 총점 : ${sum} 평균 : ${avg} <br/> `;
+        }
+    </script>
+</body>
+</html>

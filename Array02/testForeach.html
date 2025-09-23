@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach문</title>
+</head>
+<body>
+    <script>
+        // forEach() : 배열 전용 각 요소를 한번씩 순회하는 함수
+        // 사용 형식 : forEach((value(값),index(값위치),array(전체배열)) => {실행문})
+        // 순서가 중요함. : value -> index -> array
+
+        // let arr02 = [10,20,30];
+        // arr02.forEach((value,index,array) => {
+        //     console.log(`${index}: ${value}`); // 0: 10, 1: 20, 2: 30
+        //     console.log(`${array}`); //10,20,30
+        // })
+
+        let arr02 = [10,20,30];
+        arr02.forEach((num,i) => {
+            //num => value
+            // i => index 번호를 의미
+            console.log(arr02[i])
+        })
+
+        let arr03 = ['apple','banana','chary'];
+        arr03.forEach((fruit,i) => {
+            console.log(fruit); 
+        })
+
+        // map() => 콜백함수를 return한다. (반환 = 되돌려받는다.)
+        // return받은 값으로 새로운 배열을 생성해서 반환함.
+        // 배열 전용 순회함수
+        let arr05 = [1,2,3];
+        // return반환하는 콜백함수 지정
+        let doubled = arr05.map((value) => {
+            console.log('map 값 : ' + value);
+            return value * 10;
+        })
+        console.log('return 값 : ' + doubled);
+
+        // 단어를 대문자로 변경
+        // toUpperCase() : 대문자 매서드
+        // toLowerCase() : 소문자 메서드
+        let words = ['apple','grape','banana'];
+        // map을 이용해서 대문자 출력
+        //map은 한줄로 코딩할땐 return생략 가능 근데 안쓰면 다음에 쓸때 까먹으니까 그냥 쓰자
+        let uppers = words.map((fruit) => {
+            return fruit.toUpperCase();
+        })
+        console.log(uppers);
+    </script>
+</body>
+</html>

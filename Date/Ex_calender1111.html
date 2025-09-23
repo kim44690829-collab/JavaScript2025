@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calender</title>
+</head>
+<body>
+    <div class="container">
+        <button type="button" onclick="previous()">이전</button>
+        <span id="yearMonth"></span>
+        <button type="button" onclick="next()">다음</button>
+    </div>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let result = '<table border="1">';
+        let month = Array.from(Array(6),() => new Array(7));
+        
+        // 해당월의 첫 일자 : 1
+        // 해당월의 마지막일자
+        let month9 = new Date('2025/2/23');
+        month9.setMonth(month9.getMonth() + 1);
+        month9.setDate(0);
+        let month1 = month9.getDate();
+        console.log(month1);
+
+        //9월 1일의 요일 산출
+        let wee = ['일','월','화','수','목','금','토'];
+        month9.getDate(month9.setDate(1));
+        let weekdays = month9.getDay();
+        for(let i = 0; i < wee.length; i++){
+            if(i === weekdays){
+                console.log(wee[i]);
+            }
+        }
+
+        result += '</table>';
+        output.innerHTML = result;
+
+        //해당 년월의 마지막 일자 산출
+        //해당 년월의 1일의 요일 산출
+        //일주일 7(토)이 되면 줄바꿈
+        //이전,다음은 년월일 증가, 감소
+        //요일 산출한 날짜부터 말일까지 1씩 증가
+
+        //해당 년월의 말일 산출
+        //해달 년월의 1일의 요일 산출
+        //전체 초기화
+        //요일 산출한 날짜부터 말일까지 1씩 증가해서 세팅
+        //토요일 만나면 다음줄
+        //이전 다음은 년월일의 증가, 감소
+        
+
+        //올해 년도구하기
+        //오늘날짜의 월
+        //이달 마지막날짜의 일자
+        //이달의 시작인 1일의 요일
+        //당해년도 월의 시작일자
+        //당해년도 월의 시작요일
+        //배열초기화
+        //시작일부터 마지막일까지 배열에 저장
+        //7일되면 배열 줄 바꿈
+        //display()
+        //calendar() 호출
+        //테이블 생성
+        //이전버튼()
+        //display()
+        //이후버튼()
+        //display()
+    </script>
+</body>
+</html>

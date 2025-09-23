@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calender</title>
+</head>
+<body>
+    <div class="container">
+        <button type="button" onclick="previous()">이전</button>
+        <span id="yearMonth"></span>
+        <button type="button" onclick="next()">다음</button>
+    </div>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let result = '<table border="1">';
+        let month = Array.from(Array(6),() => new Array(7));
+        let weekdays = ['일','월','화','수','목','금','토'];
+        let month9 = new Date();
+        month9.setMonth(month9.getMonth() + 1);
+        month9.setDate(0);
+        let month1 = month9.getDate();
+        let startDay = 1;
+        let lastDay = 30;
+
+
+        //9월 1일의 요일 산출
+        month9.getDate(month9.setDate(1));
+        let wee = month9.getDay();
+        for(let i = 0; i < weekdays.length; i++){
+            if(i === wee){
+                console.log(weekdays[i]);
+            }
+        }
+        
+        result += '<tr>';
+        for(let i = 0; i < weekdays.length; i++){
+            result += `<td>${weekdays[i]}</td>`;
+            }
+        result += '</tr>';
+
+        for(let i = 0; i < month.length; i++){
+            result += '<tr>';
+            for(let j = 0; j < month[i].length; j++){
+                if(startDay <= month1){
+                    result += `<td>${startDay++}</td>`;
+                }else{
+                    result += '<td></td>'
+                }
+            }
+            result += '</tr>';
+            if(startDay > lastDay){
+                break;
+            }
+        }
+        result += '</table>';
+        output.innerHTML = result;
+        
+    </script>
+</body>
+</html>

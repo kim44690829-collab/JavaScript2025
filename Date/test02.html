@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 객체 연습문제</title>
+</head>
+<body>
+    <button onclick="outputDate1()">1. 현재 연도 출력</button>
+    <p id="output1"></p>
+    <button onclick="outputDate2()">2. 오늘 요일 출력</button>
+    <p id="output2"></p>
+    <button onclick="outputDate3()">3. 현재 시간 출력</button>
+    <p id="output3"></p>
+    <button onclick="outputDate4()">4. 특정 날짜까지 남은 일수 계산</button>
+    <p id="output4"></p>
+    <button onclick="outputDate5()">5. 하루 후, 일주일 후 날짜 출력</button>
+    <p id="output5"></p>
+
+    <script>
+        // outputDate4(); //아래 생성된 함수를 위에서 불러오는 건 자바스크립트에 호이스팅문제로 안될때가 있음.
+        //outputDate3();
+        function outputDate1(){
+            //outputDate3();
+            let output1 = document.getElementById('output1');
+
+            let today = new Date();
+            output1.innerHTML =`올해는 ${today.getFullYear()}년입니다.`;
+        }
+        function outputDate2(){
+            let output2 = document.getElementById('output2');
+
+            const weekdays = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일']
+            let today = new Date();
+            let wee = today.getDay();
+            let oneDay = '';
+            for(let i = 0; i < weekdays.length; i++){
+                if( i === wee){
+                    oneDay = weekdays[wee];
+                }
+            }
+            output2.innerHTML = `오늘은 ${oneDay}입니다.`
+        }
+        function outputDate3(){
+            let output3 = document.getElementById('output3');
+            let today = new Date();
+            let hour = today.getHours();
+            let min = today.getMinutes();
+            let sec = today.getSeconds();
+            output3.innerHTML = `현재 시간 : ${hour}:${min}:${sec}`;
+        }
+        function outputDate4(){
+            let output4 = document.getElementById('output4');
+            let today = new Date();
+            today.setHours(0,0,0,0); //시간을 초기화
+            console.log(today);
+
+            let birth = new Date('2026,3,12');
+            birth.setHours(0,0,0,0); //시간을 초기화
+            console.log(birth);
+            //+1하는 이유 찾기
+            let birthDay = ((birth - today) / 86400000).toFixed(0);
+            let birthDay1 = ((birth.getTime() - today.getTime()) / 86400000).toFixed(0); //getTime메서드를 사용해서 시간까지 빼버림.
+
+
+            output4.innerHTML = `생일까지 ${birthDay}일 남았습니다.`
+        }
+        function outputDate5(){
+            let output5 = document.getElementById('output5');
+            let today = new Date();
+
+            //하루 후 날짜
+            let tomorrow = new Date(today);
+            // 일 + 1 => 수정
+            tomorrow.setDate(today.getDate() + 1);
+            tomorrow1 = tomorrow.getDate();
+            console.log(tomorrow);
+
+            //일주일 후
+            let nextWeek = new Date(today);
+            nextWeek.setDate(today.getDate() + 7);
+            nextWeek1 = nextWeek.getDate();
+            console.log(nextWeek);
+            output5.innerHTML = `하루 후 날짜 : ${tomorrow1}, 일주일 후 날짜 : ${nextWeek1}`;
+        }
+        // outputDate5(); => onclick을 하지 않아도 나옴. 함수를 호출했다.
+    </script>
+</body>
+</html>

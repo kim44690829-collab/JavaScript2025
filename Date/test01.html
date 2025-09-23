@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 코어 객체 설명</title>
+</head>
+<body>
+    <script>
+        // 객체(Object) : 자바 스크립트에 내장된 함수
+                       // Array Date String Math 등이 존재한다.
+        // 객체는 new Date() 의 형식으로 생성하여 사용한다.
+
+        let today = new Date(); //Date 객체를 new로 생성하여 today 변수에 담음
+        console.log('오늘날짜 : ' + today);
+        // 오늘날짜 : Tue Sep 23 2025 11:04:32 GMT+0900 (한국 표준시)
+        console.log(typeof today);
+        // typeof => object
+
+        let OneDate = new Date(86400000);
+        //Date객체를 생성할때 Date(값) => 1970-1-1 부터 값을 계산
+
+        // 86,400,000 => 1day를 의미
+        // 1s => 1,000ms 
+        // 1m => 60s * 1,000ms => 60,000ms
+        // 1h => 60m * 60,000ms => 3,600,000ms
+        // 1d => 24h * 3,600,000 => 86,400,000ms
+        console.log(OneDate);
+        // Fri Jan 02 1970 09:00:00 GMT+0900 (한국 표준시)
+
+        //인수로 날짜와 시간 문자열로 넣기 => 인수 : Date(인수)
+        let date01 = new Date('september 08,2025,14:10:00');
+        console.log(date01);
+
+        let date02 = new Date('2025/09/08/14:10:20');
+        console.log(date02);
+
+        // new Date(year,month,day,hour,minute,second,millisecond)
+        let date03 = new Date(2024,8);
+        //8월 -> 9월 : index번호처럼 0부터 시작해서 8월을 작성해도 9월로 출력됨.
+        console.log(date03);
+        //Sun Sep 01 2024 00:00:00 GMT+0900 (한국 표준시)
+
+        // Date 생성자 new를 빼고 호출
+        // 결과값을 문자열로 반환
+        // typeof + 변수이름 => 변수에 해당하는 데이터의 타입이 나옴.
+        let todat02 = Date();
+        console.log(typeof todat02, todat02);
+        // Tue Sep 23 2025 11:37:06 GMT+0900 (한국 표준시)
+        // string Tue Sep 23 2025 11:38:34 GMT+0900 (한국 표준시)
+
+        // 오늘 날짜/시간 동시에 출력
+        let now = Date.now() ; // .now() => 프로퍼티 = 메소드(=함수);
+        console.log(now);
+        //1758595400781
+        console.log(now / 86400000 / 365);
+        //55.764697094336626 => 1970-1-1 + 55 => 2025
+
+        //Date.parse
+        let d = Date.parse('Jan 2, 1970 00:00:00 UTC'); //세계 협정 시간
+        console.log(d);
+        //86400000
+
+        // Date의 메서드를 이용해서 출력, 수정
+        // 메서드에서의 get~ : 출력 / getter , set~ : 수정 / setter
+
+        let todat03 = new Date();
+        // 오늘 날짜의 년도만 추출
+        let year01 = todat03.getFullYear();
+        console.log('오늘 날짜의 년도 : ' + year01);
+        // 오늘 날짜의 년도 : 2025
+
+        //날짜의 년도를 수정
+        let today04 = new Date();
+        today04.setFullYear(2000); //오늘 날짜의 년도를 2000년으로 수정
+        // setFullYear로 수정
+        let year02 = today04.getFullYear();
+        //getFullYear로 출력
+        console.log('수정한 날짜의 년도 : ' + year02);
+        //수정한 날짜의 년도 : 2000
+
+        // 오늘날짜의 월을 3월로 변경하여 날짜 출력
+        let today05 = new Date();
+        // 월 : 1월이 0부터 시작 12월 -> 11
+        today05.setMonth(3);
+        let month01 = today05.getMonth();
+        console.log(month01, today05);
+        // 3,  Wed Apr 23 2025 12:02:51 GMT+0900 (한국 표준시)
+
+        // 월과 일을 지정(수정)
+        let todat06 = new Date();
+        todat06.setMonth(11,1);
+        let month02 = todat06.getMonth();
+        let day02 = todat06.getDay();
+        let date04 = todat06.getDate();
+        console.log(month02, day02, date04);
+
+        //요일 출력
+        let todat07 = new Date();
+        // 요일 출력 메서드 getDay() : 0(일요일) ~ 6(토요일)
+        // 년,월,일 의 일을 출력 => getDate() : 2025-9-23 23출력
+        let wee = ['일','월','화','수','목','금','토'];
+        let weekdays = todat07.getDay();
+        console.log(weekdays);
+        // for문
+        for(let i = 0; i < wee.length; i++){
+            if( i === weekdays){
+                console.log(wee[weekdays]);
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

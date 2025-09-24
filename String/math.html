@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 객체 기본 설명</title>
+</head>
+<body>
+    <script>
+        let num1 = 3.1;
+        let num2 = 5.7;
+        let num3 = 30.1234;
+        //Math의 프로퍼티는 데이터 타입이 숫자임.
+        console.log(Math.ceil(num1)); // 올림이니까 4 출력
+        console.log(Math.ceil(num2)); // 올림이니까 6 출력
+        console.log(Math.floor(num1)); // 내림이니까 3 출력
+        console.log(Math.floor(num2)); // 내림이니까 5 출력
+        //toFixed는 문자가 된다.
+        console.log(num1.toFixed(0));
+        console.log(typeof num1.toFixed(0));
+        // toFixed() => 숫자로 변경 Number(toFixed(0))
+        // 5 이상이면 반올림
+        console.log(Number(num2.toFixed(1)));
+
+        //round() 는 소수 첫번째 자리수가 5이상이면 반올림하고, 아니면 안함.
+        console.log(Math.round(num1)); 
+        console.log(Math.round(num2)); 
+        console.log(Math.round(num3,2)); 
+        // abs : 절대값, 음수,양수도 무조건 양수
+        console.log('abs : ' + Math.abs(-3)); //3
+        //sqrt : 루트/제곱근
+        console.log('sqrt, 제곱근 : ' + Math.sqrt(16)); //4
+
+        //난수를 발생 : 0 ~ 1까지의 수를 무작위로 출력
+        //random() 난수발생 프로퍼티
+        console.log(Math.random());
+        console.log(Math.random());
+        //0부터 100까지의 난수를 발생시키게 바꿈
+        //문제는 소수점이 발생한다는 것.
+        console.log(Math.random() * 100); //61.95754519915992
+        //Math.floor()를 통해 소수점을 없앰
+        console.log(Math.floor(Math.random() * 100)); //1
+        //1부터 100까지 난수 발생
+        console.log(Math.floor(Math.random() * 100) + 1);
+
+        //Math.max => 최대값
+        //Math.min => 최소값
+        console.log(Math.max(-1,2,5,-3));
+        console.log(Math.min(-1,2,5,-3));
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #647FBC;
+        }
+        .container{
+            width: 500px;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #91ADC8;
+            border-radius: 10px;
+            padding: 30px;
+            background-color: #91ADC8;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        }
+        .container h1{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FAFDD6;
+            font-size: 55px;
+        }
+        .container h5{
+            text-align: center;
+            margin-bottom: 50px;
+            color: #FAFDD6;
+            font-size: 16px;
+        }
+        .container input{
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid #647FBC;
+        }
+        .container input::placeholder{
+            color: #647FBC;
+        }
+        .container input:focus::placeholder{
+            visibility: hidden;
+        }
+        .container button{
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #647FBC;
+        }
+        .container button:hover{
+            background-color: #647FBC;
+            cursor: pointer;
+            color: #FAFDD6;
+        }
+        .container p{
+            text-align: center;
+            margin: 50px 0 20px 0;
+            font-size: 50px;
+            color: #FAFDD6;
+            text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+        }
+        .container #try_count{
+            text-align: center;
+            color: #FAFDD6;
+            text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>숫자 맞추기 게임</h1>
+        <h5>1에서 100사이의 수를 입력하세요.</h5>
+        <input type="text" id="num" placeholder="숫자를 입력하세요." />
+        <button type="button" onclick="updown()">확인</button>
+        <p id="output"></p>
+        <h1 id="try_count"></h1>
+    </div>
+
+        <script>
+            //난수 생성
+                let num_match = Math.floor((Math.random() * 100) + 1);
+                console.log(num_match);
+            
+            // function 안에 들어있으면 클릭 될때마다 0으로 초기화됨
+            // count를 function 밖에서 0으로 초기화하고 클릭이 될때마다 function안에서 count를 누적시킴
+                let count = 0;
+            // 함수 생성
+            function updown(){
+                //document 생성
+                let output = document.getElementById('output');
+                let try_count = document.getElementById('try_count');
+                let num = Number(document.getElementById('num').value);
+
+                // input한 숫자가 난수보다 작으면 업, 크면 다운, 그외에는 빙고            
+                if(num > num_match){
+                    output.innerHTML = "Down!";
+                }else if(num < num_match){
+                    output.innerHTML = "up!";
+                }else{
+                    output.innerHTML = "Bingo!";
+                }
+                count += 1;
+                // if(num > num_match || num < num_match || num === num_match){
+                //    count += 1;
+                // }
+                try_count.innerHTML = `시도 횟수 : ${count}회`;
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String, Math 예제</title>
+</head>
+<body>
+    <h1>1. 랜덤 이름 뽑기</h1>
+    <button type="button" onclick="name1()">정답 보기</button>
+    <p id="output1"></p>
+    <h1>2. 랜덤 문자열 추출</h1>
+    <button type="button" onclick="str()">정답 보기</button>
+    <p id="output2"></p>
+    <h1>3. 단어 길이 비교하기</h1>
+    <button type="button" onclick="word()">정답 보기</button>
+    <p id="output3"></p>
+    <h1>4. 랜덤 비밀번호 생성기(5글자)</h1>
+    <button type="button" onclick="pw()">정답 보기</button>
+    <p id="output4"></p>
+    <h1>5. 문자열 공백 제거 후 길이 출력</h1>
+    <button type="button" onclick="trim_length()">정답 보기</button>
+    <p id="output5"></p>
+    <script>
+        function name1(){
+            let output1 = document.getElementById('output1');
+            let names = ["철수","영희","민수","지영","수현"];
+            let name = Math.floor(Math.random() * names.length);
+            output1.innerHTML = `뽑힌 이름 : ${names[name]}`;
+        }
+        function str(){
+            let output2 = document.getElementById('output2');
+            let str = "JavaScript";
+            let str1 = Math.floor(Math.random() * str.length);
+            output2.innerHTML = `뽑힌 글자 : ${str[str1]}`;
+        }
+        function word(){
+            let output3 = document.getElementById('output3');
+            let str2 = "apple";
+            let str3 = "watermelon";
+
+            let long_word = str2;
+            Math.max(str2.length,str3.length);
+            if(str2.length > str3.length){
+                long_word = str2;
+            }else{
+                long_word = str3;
+            }
+            output3.innerHTML = `더 긴 단어 : ${long_word} (길이 : ${long_word.length})`;
+        }
+        function pw(){
+            let output4 = document.getElementById('output4');
+            let pw = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+           
+            let pw_result = '';
+            for(let i = 0; i < 5; i++){
+                let pw_index = Math.floor(Math.random() * pw.length);
+                pw_result += pw[pw_index];
+            }
+            output4.innerHTML = pw_result;
+        }
+        function trim_length(){
+            let output5 = document.getElementById('output5');
+            let str4 = " Hello JavaScript ";
+
+            let trim_str4 = str4.trim();
+
+            output5.innerHTML = `공백 제거 후 : ${trim_str4} , 길이 : ${trim_str4.length}`;
+        }
+
+
+    </script>
+</body>
+</html>

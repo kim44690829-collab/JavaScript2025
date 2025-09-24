@@ -16,6 +16,16 @@
     <p id="output4"></p>
     <button onclick="outputDate5()">5. 하루 후, 일주일 후 날짜 출력</button>
     <p id="output5"></p>
+    <button onclick="outputDate6()">6. 날짜 비교</button>
+    <p id="output6"></p>
+    <button onclick="outputDate7()">7. 월의 마지막 날 구하기</button>
+    <p id="output7"></p>
+    <button onclick="outputDate8()">8. 특정 요일 찾기</button>
+    <p id="output8"></p>
+    <button onclick="outputDate9()">9. 시간 차 계산 </button>
+    <p id="output9"></p>
+    <button onclick="outputDate10()">10. 요일에 따라 메시지 출력</button>
+    <p id="output10"></p>
 
     <script>
         // outputDate4(); //아래 생성된 함수를 위에서 불러오는 건 자바스크립트에 호이스팅문제로 안될때가 있음.
@@ -84,6 +94,73 @@
             output5.innerHTML = `하루 후 날짜 : ${tomorrow1}, 일주일 후 날짜 : ${nextWeek1}`;
         }
         // outputDate5(); => onclick을 하지 않아도 나옴. 함수를 호출했다.
+        function outputDate6(){
+            let output5 = document.getElementById('output6');
+            // 비교할 날짜
+            let today1 = new Date("2025/09/23");
+            let today2 = new Date("2025/12/25");
+            let futuerDate = '';
+
+            // 날짜 비교를 위한 로직
+            // A 날짜 - B날짜 = 양수일 경우 A가 더 미래, 음수일 경우 B가 더 미래
+            // 만약 양수면 A날짜를 futuerDate에 대입, 음수면 B날짜를 futuerDate에 대입 후 HTML에 출력
+            let futuer = (today1.getTime() - today2.getTime()) / 86400000;
+            console.log(futuer);
+            if(futuer < 1){
+                futuerDate = today2;
+            }else{
+                futuerDate = today1;
+            }
+            output6.innerHTML = `더 미래의 날 : ${futuerDate.getFullYear()}년 ${futuerDate.getMonth()+1}월 ${futuerDate.getDate()}일 입니다.`;
+        }
+        function outputDate7(){
+            let output7 = document.getElementById('output7');
+            //오늘 날짜 생성
+            let today = new Date();
+            //해당 년, 월 찾기
+            let year = today.getFullYear();
+            let month = today.getMonth();
+            //마지막 날 찾고 날짜만 뽑아내기
+            let lastDate = new Date(year,month+1,0);
+            let lastDay = lastDate.getDate();
+            //출력
+            output7.innerHTML = `${month+1}월의 마지막 날은 ${lastDay}일입니다.`
+        }
+        function outputDate8(){
+            let output8 = document.getElementById('output8');
+            let arr = Array.from(Array(6),() => new Array(7));
+            //오늘 날짜 생성
+            let today = new Date(); // 25년 9월 24일
+            let year = today.getFullYear();
+            let month = today.getMonth();
+            //시작일과 끝일 정하기
+            let startDate = new Date(year,month,1);
+            console.log(startDate);
+            let startDay = startDate.getDate();
+            while(startDate.getDay() !== 5){
+                startDate.setDate(startDate.getDate() + 1);
+            }
+            output8.innerHTML = `이번 달의 첫번째 금요일은 ${startDate.getDate()}입니다.`
+        }
+        function outputDate9(){
+            let output9 = document.getElementById('output9');
+            let today = new Date();
+            let hours = today.getHours();
+            let min = today.getMinutes();
+            let sec = today.getSeconds();
+            let current_time = new Date(hours,min,sec);
+            console.log(current_time);
+        }
+        function outputDate10(){
+            let output10 = document.getElementById('output10');
+            let today = new Date("2025/09/27");
+            let week = today.getDay();
+            if(week === 0 || week === 6){
+                output10.innerHTML = `주말이에요!`
+            }else{
+                output10.innerHTML = `열심히 일하는 날!`;
+            }
+        }
     </script>
 </body>
 </html>

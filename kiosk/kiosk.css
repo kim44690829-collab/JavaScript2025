@@ -1,0 +1,110 @@
+@charset "utf-8";
+body{
+    font-family: sans-serif;
+    margin: 30px;
+    background-color: #37353E;
+}
+.wrap{
+    display: flex;
+    width: 900px;
+    height: 700px;
+    margin: 0 auto;
+    /* border: 1px solid #D3DAD9; */
+    background-color: #44444E;
+}
+.wrap .order_menu{
+    width: 700px;
+    height: inherit;
+    border: 1px solid #D3DAD9;
+    background-color: #715A5A;
+}
+.wrap .order_menu h3, p{
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
+    color: #D3DAD9;
+}
+.wrap .order_menu h2{
+    margin: 10px 0px 20px 20px;
+    color: #D3DAD9;
+}
+.wrap .order_menu .section1{
+    width: 698px;
+    height: 638px;
+}
+.wrap .order_menu .section1 .menubox{
+    width: 698px;
+    height: 608px;
+}
+.wrap .order_menu .section1 .menubox  ul.menu{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 698px;
+    height: 600px;
+}
+.wrap .order_menu .section1 .menubox li{
+    width: 140px;
+    height: 160px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.wrap .order_menu .section1 .menubox li:hover{
+
+}
+.wrap .order{
+    width: 200px;
+    position: relative;
+    border: 1px solid #D3DAD9;
+}
+.wrap .order .order_list{
+    text-align: right;
+}
+.wrap .order .order_list .section2 h2{
+    margin: 10px 5px 0 0;
+    color: #D3DAD9;
+}
+.wrap .order .order_result{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 20px;
+    margin-left: 40px;
+}
+.wrap .order .order_result h2{
+    margin-bottom: 20px;
+    color: #D3DAD9;
+}
+.wrap .order .order_result button{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #715A5A;
+    color: #D3DAD9;
+    border: 1px solid #715A5A;
+}
+.wrap .order .order_result button:hover{
+    cursor: pointer;
+    background-color: #37353E;
+    border: 1px solid #D3DAD9;
+}
+.wrap .order .order_list .orderbox ul li{
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #D3DAD9;
+}
+.wrap .order .order_list .orderbox ul li hr{
+    color: #D3DAD9;
+}
+.wrap .order .order_list .orderbox ul li button{
+    margin: 5px 3px 0 0;
+    font-size: 13px;
+    background-color: #715A5A;
+    color: #D3DAD9;
+    border: 1px solid #715A5A;
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+}
+.wrap .order .order_list .orderbox ul li button:hover{
+    background-color: #37353E;
+    border: 1px solid #D3DAD9;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object 기초문제</title>
+</head>
+<body>
+    <script>
+        // Object 배열 만들기 / 리액트에서 많이 쓰이는 방식
+        // id:x 는 => 배열 안의 각각의 Object를 구별하는 key
+        // DB(DataBase)형식으로 작성하는 것
+        //DB란 => 데이터 저장소
+        let cart = [
+            {id:1, name:'노트북', price:1000, quantity:1}, //index : 0
+            {id:2, name:'마우스', price:50, quantity:2}, // index : 1
+        ]
+        
+        // for문 이용하여 total값 구하기
+        let total = 0;
+        for(let i = 0; i < cart.length; i++){
+            total += cart[i].price * cart[i].quantity;
+        }
+        console.log(total);
+    </script>
+</body>
+</html>

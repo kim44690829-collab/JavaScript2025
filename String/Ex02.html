@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충 예제</title>
+</head>
+<body>
+    <h1>1. 1~50 사이 숫자 중 4의 배수만 더한 합</h1>
+    <button type="button" onclick="num1()">확인</button>
+    <p id="output1"></p>
+
+    <h1>2. 입력받은 숫자 n의 약수 출력</h1>
+    <input type="number" id="num"/>
+    <button type="button" onclick="num2()">확인</button>
+    <p id="output2"></p>
+
+    <h1>3. 1 ~ 100 사이 모든 짝수 합과 홀수 합 동시에 구하기</h1>
+    <button type="button" onclick="num3()">확인</button>
+    <p id="output3"></p>
+
+    <h1>4. 1 ~ n 사이에서 7의 배수 개수 세기</h1>
+    <input type="number" id="num1"/>
+    <button type="button" onclick="num4()">확인</button>
+    <p id="output4"></p>
+
+    <h1>5. 사용자 입력 숫자가 소수인지 아닌지 판별</h1>
+    <input type="number" id="num2"/>
+    <button type="button" onclick="num5()">확인</button>
+    <p id="output5"></p>
+
+    <h1>6. 숫자 뒤집기</h1>
+    <button type="button" onclick="num6()">확인</button>
+    <p id="output6"></p>
+
+    <script>
+        function num1(){
+            let output1 = document.getElementById('output1');
+            let result = 0;
+            for(let i = 1; i <= 50; i++){
+            if(i % 4 === 0){
+                result += i;
+            }
+            }
+            output1.innerHTML = result;
+        }
+        function num2(){
+            let output2 = document.getElementById('output2');
+            let num = Number(document.getElementById('num').value);
+            let result = '';
+            for(let i = 1; i <= num; i++){
+                if(num % i === 0){
+                    result += i + ', ';
+                }
+            }
+            result = result.slice(0,-2);
+            output2.innerHTML = result;
+        }
+        function num3(){
+            let output3 = document.getElementById('output3');
+            let evenResult = 0;
+            let oddResult = 0;
+            for(let i = 1; i <= 100; i++){
+                if(i % 2 === 0){
+                    evenResult += i;
+                }else{
+                    oddResult += i;
+                }
+            }
+            output3.innerHTML = `짝수의 합 : ${evenResult}, 홀수의 합 : ${oddResult}`;
+        }
+        function num4(){
+            let output4 = document.getElementById('output4');
+            let num1 = Number(document.getElementById('num1').value);
+            let count = 0;
+            for(let i = 1; i <= num1; i++){
+                if(i % 7 === 0){
+                    count++;
+                }
+            }
+            output4.innerHTML = count;
+        }
+        function num5(){
+            let output5 = document.getElementById('output5');
+            let num2 = Number(document.getElementById('num2').value);
+            let count = 0;
+            let result = '';
+            for(let i = 1; i <= num2; i++){
+                if(num2 % i === 0){
+                    count++;
+                }
+            }
+            if(count > 2){
+                    result = `소수가 아닙니다.`;
+            }else{
+                result = `소수입니다.`;
+            }
+            output5.innerHTML = result;
+        }
+        function num6(){
+            let output6 = document.getElementById('output6');
+            let result = '';
+            let resultBack = '';
+            for(let i = 1; i <= 5; i++){
+                result += i + ', ';
+            }
+            result = result.slice(0,-2);
+            output6.innerHTML = result;
+            
+        }
+    </script>
+</body>
+</html>

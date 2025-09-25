@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+</head>
+<body>
+    <h1>2. 쇼핑몰 장바구니 총액 계산</h1>
+    <p id="output"></p>
+
+    <script>
+        let cart = [
+            {id:1,name:'노트북',price:1000000,quantity:1},
+            {id:2,name:'마우스',price:20000,quantity:2},
+            {id:3,name:'키보드',price:50000,quantity:1},
+        ]
+        let output = document.getElementById('output');
+
+        let productPrice = '';
+        let sum = 0;
+        for(let i = 0; i < cart.length; i++){
+            sum += cart[i].price * cart[i].quantity;
+            productPrice += `${cart[i].name} 금액 : ${(cart[i].price * cart[i].quantity).toLocaleString('ko-kr')}원 <br/>`;
+        }
+        output.innerHTML = `${productPrice} 장바구니 총 금액 : ${sum.toLocaleString('ko-kr')}원`;
+    </script>
+</body>
+</html>

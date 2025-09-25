@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 구현</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            margin: 30px;
+            background-color: #9f9f9f;
+        }
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table{
+            width: 700px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        th,td{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th{
+            background-color: #4caf50;
+            color: white;
+        }
+        button{
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .plus{
+            background-color: #4caf50;
+            color: white;
+        }
+        .minus{
+            background-color: #f39c12;
+            color: white;
+        }
+        .remove{
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>장바구니</h2>
+    <table id="cartTable">
+        <thead>
+        <tr>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>수량</th>
+            <th>합계</th>
+            <th>조작</th>
+        </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+    </table>
+    <!-- <출력 결과물> -->
+    <div id="total">총 금액: 0원</div>
+    <script>
+        // 장바구니 구현 데이터
+        let cart = [
+            {id:1,name:'노트북',price:1000000,quantity:1},
+            {id:2,name:'마우스',price:20000,quantity:2},
+            {id:3,name:'키보드',price:50000,quantity:1},
+        ]
+        console.log(cart[0].quantity);
+        let total = document.getElementById('total');
+
+        // 장바구니 cartBody에 들어가는 테이블을 구현
+        // function renderCart(){사용 
+        // 어떤 사건도 일어나지 않아서 호출하지 않으면 아무 동작도 안함.
+        function renderCart(){
+            let cartBody = document.getElementById('cartBody');
+            let result = '';
+            let sum = 0;
+            // cart 배열 오브젝트의 각 항목을 테이블의 <tr> ~ </tr>
+            for(let i = 0; i < cart.length; i++){
+                sum = cart[i].price * cart[i].quantity;
+                // i가 0일때 첫번째 버튼 클릭
+                // function increase(0) => 매개변수 function
+                result += `
+                <tr>
+                    <td>${cart[i].name}</td>
+                    <td>${cart[i].price.toLocaleString('ko-kr')}</td>
+                    <td>${cart[i].quantity}</td>
+                    <td>${sum.toLocaleString('ko-kr')}원</td>
+                    <td>
+                        <button class="plus" onclick="increase(${i})">+</button>
+                        <button class="minus" onclick="decrease(${i})">-</button>
+                        <button class="remove" onclick="remove(${i})">x</button>
+                    </td>
+                </tr>
+            `
+            }
+            cartBody.innerHTML = result;
+        }
+        renderCart(); //함수 호출은 사건 발생을 시키는 것. onclick과 같은 용도
+
+        // plus 버튼
+        // 매개변수를 지정한 함수는 반드시 함수작성시 매개변수 지정해야함.
+        //함수 매개변수 이름은 개발자가 작명
+        function increase(indexNum){
+            // + 버튼 클릭시 수량 1 증가
+            //수량 증가는 10이되면 더이상 증가 불가
+            if(cart[indexNum].quantity < 10){
+                cart[indexNum].quantity++;
+            }else{
+                alert('수량은 10개까지만 가능합니다.')
+            }
+            renderCart();
+        }
+        // minus 버튼
+        function decrease(indexMinus){
+            if(cart[indexMinus].quantity > 1){
+                cart[indexMinus].quantity--;
+            }else{
+                alert('수량이 없습니다.')
+            }
+            renderCart();
+        }
+        // remove 버튼 배열이름.splice(시작할 인덱스 번호, 제거할 요소의 개수)
+        // 메모리의 중요성 => 메모리 데이터가 쌓이면 속도가 느려짐
+        function remove(indexRemove){
+            cart.splice(indexRemove,1);
+            renderCart();
+        }
+        // function total(){
+        //     renderCart();
+
+        // }
+    </script>
+</body>
+</html>

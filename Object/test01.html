@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>Book 객체</h1>
+    <hr/>
+    <div id="view"></div>
+
+    <script>
+        // Object 만드는 방식
+        // let 변수 이름 = {title : 값1, name: 값2, price: 값3 };
+        // title -> key , 값 -> value
+        // 변수 : book , 그 안의 key:value가 존재
+        let book = {
+            title:'JavaScript',
+            author:'홍길동',
+            page:500,
+            price:15000, 
+            //book 객체에 function()의 값을 입력할 수 있다.
+            info: function(){
+                // alert("문자") : 브라우저에서 메시지를 보여주는 창
+                alert(`${this.title}책의 분량은 ${this.page}쪽입니다.`);
+            }
+        };
+        // 함수 호출
+        // 함수 호출은 위치가 중요하다.
+        book.info();
+
+        console.log(book);
+        // book이라는 Object에 title이라는 프로퍼티에 접근하고 싶다.
+        // book.title (객체이름.프로퍼티이름)
+        console.log(book.title);
+        console.log(book.page);
+
+        let bookInfo = document.getElementById('view');
+
+        //DOM : HTML태그에 JavaScript가 접근하기 위한 방법
+        // id를 준 html에 넣을때 = document.getElementById('view');
+        // class를 준 html에 넣을 때 = document.getElementsByClassName('view');
+
+        // querySelector는 html이 id, class둘 다일때 사용가능, 단 id일때는 #, class일때는 .을 사용해줘야함.
+        // id를 준 html에 넣을때 = document.querySelector('#view');
+        // class를 준 html에 넣을 때 = document.querySelector('.view');
+
+        bookInfo.textContent = `${book.title}의 저자는 ${book.author}이고
+                                책의 총 페이지 수는 ${book.page}page이며, 금액은 ${book.price}원이다.`
+
+    </script>
+</body>
+</html>

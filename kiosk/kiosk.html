@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cafekiosk</title>
+    <link rel="stylesheet" href="kiosk.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="order_menu">
+            <h3>원하시는 음료를 선택해 주세요</h3>
+            <p>Please choose the drink you want.</p>
+            <div class="section1">
+                <h2>MENU</h2>
+                <div class="menubox"></div>
+            </div>
+        </div>
+        <div class="order">
+            <div class="order_list">
+                <div class="section2">
+                <h2>주문내역</h2>
+                <hr/>
+                <div class="orderbox"></div>
+                </div>
+            </div>
+            <div class="order_result">
+                <h2>총 주문금액 : <span class="pay">0원</span></h2>
+                <!-- <span class="line">&boxv;</span> -->
+                <button class="btn">현금결제</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        //오브젝트 배열 생성
+        let menus = [
+        {id:0, name:'아메리카노', type:'HOT', price:1000,quantity:1},
+        {id:1, name:'아메리카노', type:'ICE', price:1300,quantity:1},
+        {id:2, name:'바닐라라떼', type:'HOT', price:2500,quantity:1},
+        {id:3, name:'바닐라라떼', type:'ICE', price:2800,quantity:1},
+        {id:4, name:'연유라떼', type:'HOT', price:2500,quantity:1},
+        {id:5, name:'연유라떼', type:'ICE', price:2800,quantity:1},
+        {id:6, name:'카라멜마끼아또', type:'HOT', price:2800,quantity:1},
+        {id:7, name:'카라멜마끼아또', type:'ICE', price:3000,quantity:1},
+        {id:8, name:'카페모카', type:'HOT', price:3000,quantity:1},
+        {id:9, name:'카페모카', type:'ICE', price:3300,quantity:1},
+        {id:10, name:'딥카페라테', type:'HOT', price:3400,quantity:1},
+        {id:11, name:'딥카페라테', type:'ICE', price:3700,quantity:1},
+      ];
+        //오브젝트 배열 안의 메뉴 화면 출력
+        let menubox = document.querySelector('.menubox');
+        function menuView(){
+            let menu_result = '';
+            menu_result += '<ul class="menu">';
+            for(let i = 0; i < menus.length; i++){
+                let m = menus[i];
+                menu_result += `
+                    <li class="each_menu" onclick="order_breakdown(${i})">${menus[i].type} <br/> ${menus[i].name} <br/> ${menus[i].price}</li>
+                `
+            }
+            menu_result += '</ul>'
+            menubox.innerHTML = menu_result;
+        }
+        menuView();
+        // 변수 생성
+        
+        let orderbox = document.querySelector('.orderbox');
+        //주문 내역 추출
+        function order_breakdown(eachMenu){
+            console.log(eachMenu);
+            let order_result = '';
+            let sum = 0;
+            sum = menus[eachMenu].price*menus[eachMenu].quantity;
+
+            order_result += '<ul>';
+            order_result += `
+            <li>
+                ${menus[eachMenu].name}(${menus[eachMenu].type}) ${menus[eachMenu].quantity}개, ${sum}원 <br/>
+                <button class="plus" onclick="add(${eachMenu})">+</button>
+                <button class="minus" onclick="subtract(${eachMenu})">-</button>
+                <button class="cancel" onclick="cancel(${eachMenu})">선택 취소</button> <br/>
+                <hr/>
+            </li>
+            `;
+            // console.log(eachMenu);
+            order_result += '</ul>';
+            orderbox.innerHTML += order_result;
+            menuView();
+        }
+
+        order_breakdown();
+
+        //+,-,선택 취소 버튼
+        function add(addNum){
+            console.log(addNum);
+            if(menus[addNum].quantity < 10){
+                menus[addNum].quantity++;
+            }else{
+                alert('더 이상 선택할 수 없습니다.');
+            }
+            order_breakdown();
+        }
+        function subtract(subNum){
+            if(menus[subNum].quantity > 1){
+                menus[subNum].quantity--;
+            }else{
+                alert('더 이상 선택할 수 없습니다.');
+            }
+            order_breakdown();
+        }
+        function cancel(cancelIndex){
+            menus.splice(cancelIndex,1);
+            order_breakdown();
+        }
+    </script>
+</body>
+</html>

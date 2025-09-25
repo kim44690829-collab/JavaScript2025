@@ -145,11 +145,11 @@
         function outputDate9(){
             let output9 = document.getElementById('output9');
             let today = new Date();
-            let hours = today.getHours();
-            let min = today.getMinutes();
-            let sec = today.getSeconds();
-            let current_time = new Date(hours,min,sec);
-            console.log(current_time);
+            let today6c = new Date('2025/09/24/18:00:00');
+            
+            
+            let time_gap = (today.getTime() - today6c.getTime());
+            // console.log(time_gap);
         }
         function outputDate10(){
             let output10 = document.getElementById('output10');

@@ -14,6 +14,7 @@
             <p>Please choose the drink you want.</p>
             <div class="section1">
                 <h2>MENU</h2>
+                <hr/>
                 <div class="menubox"></div>
             </div>
         </div>
@@ -26,7 +27,7 @@
                 </div>
             </div>
             <div class="order_result">
-                <h2>총 주문금액 : <span class="pay">0원</span></h2>
+                <h2>총 주문금액 : <br/> <span class="pay">0</span>원</h2>
                 <!-- <span class="line">&boxv;</span> -->
                 <button class="btn">현금결제</button>
             </div>
@@ -34,86 +35,137 @@
     </div>
 
     <script>
-        
+        let orderbox = document.querySelector('.orderbox');
+        let sum = 0;
+        let totalPrice = 0;
+        //id 를 담을 변수 하나
+        let idCount = [];
+        //값을 넣을 변수 하나
+        let menuOrder = [];
+
         //오브젝트 배열 생성
         let menus = [
-        {id:0, name:'아메리카노', type:'HOT', price:1000,quantity:1},
-        {id:1, name:'아메리카노', type:'ICE', price:1300,quantity:1},
-        {id:2, name:'바닐라라떼', type:'HOT', price:2500,quantity:1},
-        {id:3, name:'바닐라라떼', type:'ICE', price:2800,quantity:1},
-        {id:4, name:'연유라떼', type:'HOT', price:2500,quantity:1},
-        {id:5, name:'연유라떼', type:'ICE', price:2800,quantity:1},
-        {id:6, name:'카라멜마끼아또', type:'HOT', price:2800,quantity:1},
-        {id:7, name:'카라멜마끼아또', type:'ICE', price:3000,quantity:1},
-        {id:8, name:'카페모카', type:'HOT', price:3000,quantity:1},
-        {id:9, name:'카페모카', type:'ICE', price:3300,quantity:1},
-        {id:10, name:'딥카페라테', type:'HOT', price:3400,quantity:1},
-        {id:11, name:'딥카페라테', type:'ICE', price:3700,quantity:1},
+        {id:0, name:'아메리카노', type:'HOT', price:1000,quantity:0},
+        {id:1, name:'아메리카노', type:'ICE', price:1300,quantity:0},
+        {id:2, name:'바닐라라떼', type:'HOT', price:2500,quantity:0},
+        {id:3, name:'바닐라라떼', type:'ICE', price:2800,quantity:0},
+        {id:4, name:'연유라떼', type:'HOT', price:2500,quantity:0},
+        {id:5, name:'연유라떼', type:'ICE', price:2800,quantity:0},
+        {id:6, name:'카라멜마끼아또', type:'HOT', price:2800,quantity:0},
+        {id:7, name:'카라멜마끼아또', type:'ICE', price:3000,quantity:0},
+        {id:8, name:'카페모카', type:'HOT', price:3000,quantity:0},
+        {id:9, name:'카페모카', type:'ICE', price:3300,quantity:0},
+        {id:10, name:'딥카페라테', type:'HOT', price:3400,quantity:0},
+        {id:11, name:'딥카페라테', type:'ICE', price:3700,quantity:0},
       ];
+      
         //오브젝트 배열 안의 메뉴 화면 출력
-        let menubox = document.querySelector('.menubox');
         function menuView(){
+            let menubox = document.querySelector('.menubox');
             let menu_result = '';
             menu_result += '<ul class="menu">';
             for(let i = 0; i < menus.length; i++){
-                let m = menus[i];
-                menu_result += `
-                    <li class="each_menu" onclick="order_breakdown(${i})">${menus[i].type} <br/> ${menus[i].name} <br/> ${menus[i].price}</li>
-                `
+                if((i+1) % 2 === 0){
+                    menu_result += `
+                    <li class="each_menu" onclick="add(${i})">
+                        <span class="type1">${menus[i].type}</span> <br/>
+                        <span class="img1">
+                            <img src="img/ice.png" alt="cold" />
+                        </span> <br/>
+                        <span class="pro_name"> ${menus[i].name}</span>
+                        <span class="pro_price"> ${menus[i].price.toLocaleString('ko-kr')}원</span>
+                    </li>
+                    `
+                }else{
+                    menu_result += `
+                    <li class="each_menu" onclick="add(${i})">
+                        <span class="type2">${menus[i].type}</span> <br/>
+                        <span class="img2">
+                            <img src="img/hot.png" alt="hot" />
+                        </span> <br/>
+                        <span class="pro_name"> ${menus[i].name}</span>
+                        <span class="pro_price"> ${menus[i].price.toLocaleString('ko-kr')}원</span>
+                    </li>
+                    `
+                }
             }
             menu_result += '</ul>'
             menubox.innerHTML = menu_result;
+            // console.log(menu_result);
+
         }
         menuView();
-        // 변수 생성
-        
-        let orderbox = document.querySelector('.orderbox');
-        //주문 내역 추출
-        function order_breakdown(eachMenu){
-            console.log(eachMenu);
-            let order_result = '';
-            let sum = 0;
-            sum = menus[eachMenu].price*menus[eachMenu].quantity;
 
-            order_result += '<ul>';
-            order_result += `
-            <li>
-                ${menus[eachMenu].name}(${menus[eachMenu].type}) ${menus[eachMenu].quantity}개, ${sum}원 <br/>
-                <button class="plus" onclick="add(${eachMenu})">+</button>
-                <button class="minus" onclick="subtract(${eachMenu})">-</button>
-                <button class="cancel" onclick="cancel(${eachMenu})">선택 취소</button> <br/>
-                <hr/>
-            </li>
-            `;
-            // console.log(eachMenu);
-            order_result += '</ul>';
-            orderbox.innerHTML += order_result;
-            menuView();
-        }
+        // let li_eachMenu = document.querySelectorAll('.each_menu');
+        // console.log(li_eachMenu);
 
-        order_breakdown();
-
-        //+,-,선택 취소 버튼
-        function add(addNum){
-            console.log(addNum);
-            if(menus[addNum].quantity < 10){
-                menus[addNum].quantity++;
-            }else{
-                alert('더 이상 선택할 수 없습니다.');
+        // 주문 내역 추출
+            // let result = '';
+            function order_breakdown(index){
+            let order_menu = '';
+            
+            for(let i = 0; i <menus.length; i++){
+                // console.log(index);
+                sum = menus[i].price * menus[i].quantity;
+                // console.log(totalPrice);
+                if(menus[i].quantity >= 1){
+                    order_menu += `
+                <li>
+                    <span class="menu">${menus[i].name}</span>
+                    <span class="menu">(${menus[i].type})</span>
+                    <span class="menu">${menus[i].quantity}개</span>
+                    <span class="menu">,</span> 
+                    <span class="menu">${sum.toLocaleString('ko-kr')}원</span><br/>
+                </li>
+                `;
+                order_menu +=  `
+                <li>
+                    <button class="plus" onclick="add(${i})">+</button>
+                    <button class="minus" onclick="sub(${i})">-</button>
+                    <button class="cancel" onclick="cancel(${i})">선택취소</button> <br/>
+                    <hr/>
+                </li>
+                `
+                }
+                idCount[i] += order_menu;
+                console.log(idCount);
             }
-            order_breakdown();
+            // console.log(menuOrder);
+            orderbox.innerHTML = order_menu;
         }
-        function subtract(subNum){
+        //index 순서가 0에 가까우면 가까울수록 위로 올라감
+        
+        // //+,-,선택 취소 버튼
+        function add(addNum){
+            // console.log(addNum);
+            menus[addNum].quantity++;
+            totalPrice += menus[addNum].price;
+            // console.log(totalPrice);
+            order_breakdown(addNum);
+            payadd();
+        }
+        function sub(subNum){
             if(menus[subNum].quantity > 1){
                 menus[subNum].quantity--;
+                totalPrice -= menus[subNum].price;
+                // console.log(totalPrice);
             }else{
                 alert('더 이상 선택할 수 없습니다.');
             }
-            order_breakdown();
+            order_breakdown(subNum);
+            payadd();
         }
         function cancel(cancelIndex){
-            menus.splice(cancelIndex,1);
-            order_breakdown();
+            totalPrice -= menus[cancelIndex].price * menus[cancelIndex].quantity;
+            menus[cancelIndex].quantity = 0;
+            order_breakdown(cancelIndex);
+            payadd();
+        }
+        
+        // 합계
+        function payadd(){
+        let pay = document.querySelector('.pay');
+        pay.innerHTML = totalPrice;
         }
     </script>
 </body>

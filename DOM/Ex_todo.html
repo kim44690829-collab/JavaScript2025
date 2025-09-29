@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 기초문제</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: sans-serif;
+            background-color: #EFF5D2;
+        }
+        .todo-container{
+            width: 500px;
+            margin: 30px auto;
+            background-color: #C6D870;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .todo-container h1{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .todo-container .input-area{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .todo-container .input-area input{
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #8FA31E;
+            outline: none;
+        }
+        .todo-container .input-area input::placeholder{
+            color: #556B2F;
+            font-size: 16px;
+        }
+        .todo-container .input-area input:focus::placeholder{
+            visibility: hidden;
+        }
+        .todo-container .input-area > button{
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #556B2F;
+            color: #EFF5D2;
+            border: 1px solid #556B2F;
+        }
+        .todo-container .input-area > button:hover{
+            cursor: pointer;
+            background-color: #EFF5D2;
+            color: #556B2F;
+        }
+        .todo-container ul{
+            display: flex;
+            gap:300px
+            
+        }
+        .todo-container ul li{
+            
+        }
+        .todo-container ul li button{
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>할 일 목록</h1>
+        <div class="input-area">
+            <input id="task" type="text" placeholder="할 일 입력" />
+            <button onclick="addTask()">추가</button>
+        </div>
+        <ul id="tasks"></ul>
+    </div>
+
+    <script>
+       
+        function addTask(){
+            // value가 없으면 input에 입력하는 값을 인식못함.
+            let task = document.getElementById('task').value.trim();
+            // tasks의 ul => li 추가
+            // li 생성 후 추가 후 값을 text노드에 접근해서 입력
+            let taskList = document.createElement('li'); // 생성
+            // tasks = li의 부모 요소
+            document.getElementById('tasks').appendChild(taskList); // 추가
+            // input에서 입력받은 값을 생성한 li에 입력
+            taskList.textContent = task; // 입력
+            // 삭제 버튼 생성 -> 추가 -> 텍스트 노드에 접근
+            let delBtn = document.createElement('button');
+            delBtn.textContent = 'x';
+            //또 다른 함수 만드는 방법
+            //변수이름.onclick = function(){} (값)
+            delBtn.onclick = function(){
+                taskList.remove();
+            }
+            taskList.appendChild(delBtn);
+            document.getElementById('tasks').appendChild(taskList);
+            // taskList.innerHTML += `<button onclick="cancel()">x</button>`;
+        }
+        // function cancel(list){
+        //     document.querySelector('ul li').remove();
+        //     addTask();
+        // }
+    </script>
+</body>
+</html>

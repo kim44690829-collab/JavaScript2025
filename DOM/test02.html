@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 기초문제</title>
+</head>
+<body>
+    <!-- 태그 작성 : 1 ~ 4번 -->
+    <h1>1. id 선택자를 사용해 텍스트를 "DOM 실습 중급"으로 바꾸고, 콘솔에도 출력</h1>
+    <p id="text">안녕하세요.</p>
+    <h1>2. 클래스 선택자로 모든 div의 배경색을 "yellow"로 변경하세요.</h1>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <h1>3. getElementsByTagName을 사용해 모든 글자색을 "blue"로 변경하세요.</h1>
+    <span>첫번째 문장</span>
+    <span>두번째 문장</span>
+    <h1>4. querySelector를 사용해 리스트의 첫 번째 단어를 "포도"로 바꾸세요.</h1>
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+
+    
+    <script>
+        let textP = document.getElementById('text');
+        textP.textContent = "DOM 실습 중급";
+        console.log(textP);
+
+        // box를 3번 루프 -> for문
+        // 배열처럼 보이지만 []로 구성 x -> 배열이 아님.
+        // let box = document.getElementsByClassName('box');
+        // let arr = Array.from(document 이름);
+        // let box2 = document.querySelector('.box'); //-> 배열로 못만든다.
+        // querySelectorAll => 배열
+        let box3 = document.querySelectorAll('.box'); //querySelectorAll 을 사용해야함.
+        // 배열 생성 Array.from()
+        // box를 배열로 생성
+        Array.from(box3).forEach((box, i) => {
+            box.style.backgroundColor = 'yellow';
+            box.style.width = '300px';
+            box.style.borderBottom = '1px solid red';
+        })
+
+        // for(let i = 0; i < box.length; i++){
+        //     box[i].
+        // }
+
+        let spanColor = document.getElementsByTagName('span');
+        let arr01 = Array.from(spanColor);
+        for(let i = 0; i < spanColor.length; i++){
+            spanColor[i].style.color = "blue";
+        }
+        // spanColor.forEach((spanColor,i) => {
+            
+        // })
+
+        // 선택자 : class, id 등이 존재하지 않을 경우, 부모 자식의 태그 명을 정확하게 입력
+        let fruitLi = document.querySelector('ul li');
+        console.log(fruitLi);
+        fruitLi.textContent ="포도";
+    </script>
+</body>
+</html>

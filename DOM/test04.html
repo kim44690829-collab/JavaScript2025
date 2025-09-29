@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>className class 이름 추가 / 수정</title>
+    <style>
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span>난 span 태그</span>
+    </h1>
+
+    <script>
+        // document.getElementsByTagName('h1') => h1이 여러개 있을 수 있으니 이렇게 코드를 쓰면 안나옴
+        // document.getElementsByTagName('h1')[0] => 첫번째 h1에 추가하겠다.
+        let titleChange = document.getElementsByTagName('h1')[0];
+        let p01 = document.createElement('p');
+
+        // 클래스 삽입.
+        p01.className = 'blue'; // <p class="blue">
+        //classList => 여러가지 메소드를 이용하여 추가/삭제/삽입 가능
+        p01.classList.add('active'); // <p class="blue active"> p태그에 active 클래스명 추가
+        p01.classList.remove('active'); // <p class="blue"> p태그에 active 이름을 가진 class명 삭제
+        
+        p01.innerHTML = '난 js로 추가된 p태그야'
+        titleChange.appendChild(p01);
+        
+    </script>
+</body>
+</html>

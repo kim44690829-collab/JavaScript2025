@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 기초문제</title>
+</head>
+<body>
+    <!-- 태그 작성 : 1 ~ 4번 -->
+    <p class="p2">one</p>
+    <p class="p2">two</p>
+
+    
+    <script>
+        // 정리
+        // <p class="p2">one</p>
+        // <p class="p2">two</p>
+
+        // 1. getElementsByTagName
+        // 배열과 유사 => p10 : [object HTMLCollection]
+        // forEach()문은 HTMLCollection을 가지고 있지 않음. => 그래서 p10.forEach() 를 사용할수 없음.
+        // 꼭 forEach()를 사용하고 싶다면 배열을 생성해줘야함. => Array.from(document 변수 이름)
+        let p10 = document.getElementsByTagName('p');
+        let arr10 = Array.from(p10);
+        console.log(`p10 : ${p10}`);
+        // arr10.forEach((item,i) => {
+        //     item.style.color = 'red';
+        // })
+
+        // forEach는 배열을 생성하지 않으면 안되지만 
+        // for문은 index번호로 루프를 돌리기 때문에 가능
+        for(let i = 0; i < p10.length; i++){
+            p10[i].style.color = 'blue';
+        }
+
+        // 2. getElementsByClassName
+        // 배열과 유사 => p11 : [object HTMLCollection] / 위와 동일
+        let p11 = document.getElementsByClassName('p2');
+        console.log(`p11 : ${p11}`);
+        // for문이 되는 이유 : index로 접근, length가 존재
+        for(let i = 0; i < p11.length; i++){
+            p11[i].style.fontSize = "30px";
+            p11[i].style.color = "green";
+        }
+
+        // querySelectorAll()
+        // 배열 => p12 : [object NodeList]
+        // javaScript 버전 ES6이후부터 forEach()를 허용함.
+        let p12 = document.querySelectorAll('.p2');
+        console.log(`p12 : ${p12}`);
+        //forEach()
+        p12.forEach((item,i) => {
+            item.style.color = 'red';
+        })
+
+        //for문
+        for(let i = 0; i < p12.length; i++){
+            p12[i].style.color = 'blue';
+        }
+
+    </script>
+</body>
+</html>

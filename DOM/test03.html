@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 기초문제</title>
+</head>
+<body>
+    <!-- 태그 작성 : 5 ~ 8번 -->
+    <h1>5. querySelectorAll을 사용해 모든 글자를 "과일"로 바꾸세요.</h1>
+    <ul class="fruit">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+    <h1>6.  새 'li'요소를 생성하고 "새 항목" 텍스트를 넣어 'ul'에 추가하세요.</h1>
+    <ul id="list01"></ul>
+
+    <h1>7. 첫 번째 li 요소를 삭제하세요.</h1>
+    <ul id="list02">
+        <li>삭제될 항목</li>
+        <li>남길 항목</li>
+    </ul>
+
+    <h1>8.  innerHTML을 사용해 DOM 연습을 추가하세요.</h1>
+    <div id="content"></div>
+
+    <script>
+        let fruit = document.querySelectorAll('fruit')
+        for(let i = 0; i < fruit.length; i++){
+            fruit[i].textContent = '과일';
+        }
+
+        let liList = document.createElement('li');
+        liList.textContent = '1번';
+        document.getElementById('list01').appendChild(liList);
+
+        let cancelList = document.querySelector('#list02 li');
+        cancelList.remove();
+
+        let content = document.getElementById('content');
+        content.innerHTML = 'DOM 연습';
+    </script>
+</body>
+</html>

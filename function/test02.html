@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <!-- 2 ~ 6 -->
+    <!-- console 출력 -->
+    <button id="btn1">버튼</button>
+    <button id="btn2">버튼</button>
+    <script>
+        // 2번
+        let getDiscountPrice = (price,rate) => {
+            let result = price * rate;
+            let totalPrice = price - result;
+            return totalPrice;
+        }
+        console.log(getDiscountPrice(10000,0.1));
+
+        // 3번
+        let btn1 = document.getElementById('btn1');
+        let count = 0;
+        btn1.onclick = function(){
+            count++;
+            console.log(`클릭횟수 : ${count}`);
+        }
+
+        // 4번
+        let getTotal = (cart) => {
+            let sum = 0;
+            for(let i = 0; i < cart.length; i++){
+                sum += cart[i];
+            }
+            return sum; // 반환
+        }
+        console.log(getTotal([1000,2000,3000]));
+
+        // 5번
+        let validatePassword = (num) => {
+            if(num.length >= 8){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        // let validatePassword = (num) => num.length >= 8
+        console.log(validatePassword("1234"));
+        console.log(validatePassword("12345678"));
+
+        // 6번
+        let btn2 = document.getElementById('btn2');
+        // btn2.addEventListener('click', () => {
+        //     let today = new Date();
+        //     console.log('현재시간 : ' + today.toLocaleString());
+        // })
+        btn2.onclick = function(){
+            let today = new Date();
+            console.log('현재시간 : ' + today.toLocaleString()); // 현재시간 : 2025. 9. 30. 오후 3:18:12
+            console.log('현재시간 : ' + today.toLocaleDateString()); // 현재시간 : 2025. 9. 30.
+        }
+    </script>
+    
+</body>
+</html>

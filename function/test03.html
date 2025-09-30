@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <!-- 7 -->
+    <button id="toggleBtn">이미지 토글</button>
+    <img id="mylmg" src="img/pic-2.jpg" style="display: block;"/>
+    <script>
+        let toggleBtn = document.getElementById('toggleBtn');
+        let mylmg = document.getElementById('mylmg');
+        let count = 0;
+        toggleBtn.addEventListener('click',() => {
+            count++;
+            if(count % 2 === 1){
+                mylmg.style.display = 'none';
+            }else{
+                mylmg.style.display = 'block';
+            }
+        })
+    </script>
+    
+</body>
+</html>

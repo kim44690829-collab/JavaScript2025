@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+</head>
+<body>
+    <!-- 17 ~ 20 -->
+    <h1>17. 자식 p 요소에서 부모 요소를 찾아 배경색을 "pink"로 바꾸세요.</h1>
+    <div class="parent">
+    <p>자식 요소</p>
+    </div>
+
+    <h1>18. children을 사용해 첫 번째 li 글자를 "첫 번째"로 바꾸세요.</h1>
+    <ul id="list1">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    
+    <h1>19. 두 번째 요소 기준으로 이전 형제 요소의 글자를 "이전"으로 바꾸세요.</h1>
+    <p>첫 번째</p>
+    <p>두 번째</p>
+    <p>세 번째</p>
+    
+    <h1>20.  JS에서 "0"이라는 <li> 요소를 첫 번째 자리에 삽입하세요.</h1>
+    <ul id="list2">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <script>
+        // 17번
+        let p17 = document.querySelector('.parent p');
+        // 부모요소 찾는 메서드 : parentElement
+        p17.parentElement.style.backgroundColor = 'pink';
+
+        // 18번
+        let list = document.getElementById('list1');
+        // 자식요소를 찾는 메서드 : children[i] -> 몇번째 자식을 찾는지 적어줘야함.
+        list.children[0].textContent = "첫 번째";
+
+        // 19번
+        // p 태그의 index[1] 을 찾음.
+        // id, class 등이 없을 때 querySelectorAll을 사용하려면 태그명을 정확하게 기재해야함.
+        let second = document.querySelectorAll('p')[2]; //17번 문제의 p태그가 있어서 부득이하게 index[2]로 변경
+        // 이전요소 찾는 메서드 : previousElementSibling
+        second.previousElementSibling.textContent = "이전";
+
+        // 20번
+        let list2 = document.getElementById('list2');
+        // li 생성 -> 삽입
+        let newLi = document.createElement('li');
+        newLi.textContent = "0";
+        // 삽입하는 메서드 : insertBefore
+        // 삽입 : insert , 삭제 : delete, 수정 : update, 검색 : select
+        // list2.firstChild : list2의 첫번째 자식으로 insert해라
+        list2.insertBefore(newLi,list2.firstChild);
+    </script>
+</body>
+</html>

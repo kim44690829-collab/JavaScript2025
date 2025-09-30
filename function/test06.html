@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <input id="inputBox" type="text" placeholder="입력해보세요">
+    <script>
+        
+        inputBox.addEventListener('keyup',() => {
+            let inputBox = document.getElementById('inputBox').value;
+            console.log(`현재 입력 : ${inputBox}`);
+        })
+    </script>
+    
+</body>
+</html>

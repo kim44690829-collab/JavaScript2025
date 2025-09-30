@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+</head>
+<body>
+    <!-- 13 ~ 16 -->
+    <h1>13. 버튼 클릭 시 classList.toggle("active") 기능 구현하세요.</h1>
+    <button id="btn">확인</button>
+    <div id="box10"></div>
+    <h1>14. JS에서 배경색을 "red"로 변경하세요.</h1>
+    <div id="box20" style="width: 100px; height: 100px;"></div>
+    <h1>15. JS로 링크 주소를 "https://google.com"으로 변경하세요.</h1>
+    <a id="link" href="https://naver.com">네이버</a>
+    <h1>16. JS로 src 속성 값을 콘솔에 출력하세요.</h1>
+    <img id="logo" src="logo.png">
+    <script>
+        let btn = document.getElementById('btn');
+        let active = document.querySelector('#box10');
+        btn.onclick = function(){
+            active.classList.toggle('active');
+            console.log(active);
+        }
+
+        let backColor = document.getElementById('box20');
+        backColor.style.backgroundColor = 'red';
+
+        let link = document.getElementById('link');
+        link.setAttribute('href','https://google.com');
+        // link.href = 'https://google.com';
+        link.textContent ='구글';
+        link.style.textDecoration = 'none';
+        link.style.color = 'black';
+
+        let logo = document.getElementById('logo');
+        console.log(logo.getAttribute('src'));
+    </script>
+</body>
+</html>

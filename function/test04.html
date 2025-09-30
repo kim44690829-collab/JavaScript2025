@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <!-- 8 -->
+    <p id="text">색상이 바뀝니다.</p>
+    <button id="colorBtn">색상 변경</button>
+    <script>
+        const colors = ['red','blue','green'];
+        let btn = document.querySelector('#colorBtn');
+        let text = document.querySelector('#text');
+        let count = 0;
+
+        btn.addEventListener('click',() => {
+            count++;
+            if(count % 3 === 1){
+                text.style.color = colors[0];
+            }else if(count % 3 === 2){
+                text.style.color = colors[1];
+            }else{
+                text.style.color = colors[2];
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

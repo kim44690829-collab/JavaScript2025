@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal 창 만들기</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            font-weight: 300;
+            color: #222;
+            font-size: 15px;
+            line-height: 1.6em;
+        }
+        .modal{
+            position: fixed;
+            /* 오버레이 위에 띄우기 위한 z-index */
+            /* z-index는 기본적으로 0, 우선권은 제일 마지막 */
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            /* border: 1px solid red; */
+            opacity: 0;
+        }
+        /* 자바 스크립트 코드로 class명 추가 이후 기능하도록 미리 css 지정 */
+        .modal.active{
+            opacity: 1;
+        }
+        .modal .modal-content{
+            width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.16);
+            background-color: #fff;
+            display: flex;
+            /* 이미지의 잘림현상을 없앤다. */
+            overflow: hidden;
+        }
+        .modal .modal-content > div{
+            padding: 20px;
+        }
+        .modal .modal-content .photo{
+            flex: 1;
+            /* background - 이미지 */
+            background: url('img/office.jpg');
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: cover;
+        }
+        .modal .modal-content .desc{
+            flex: 2;
+            text-align: center;
+        }
+        .overlay{
+            background-color: rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            /* 숨기기 */
+            visibility: hidden;
+        }
+        /* 자바 스크립트 코드로 class명 추가 이후 기능하도록 미리 css 지정 */
+        .overlay.active{
+            visibility: visible;
+        }
+        .modal .modal-content .desc .desc-header .btn-close{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+        }
+        .modal .modal-content .desc .desc-header .btn-close:hover{
+            color: #000;
+        }
+        .modal .modal-content .desc .desc-content input[type='email']{
+            display: block;
+            /* input, button => display:block 을 해도 width 100%가 되지 않는다. */
+            width: 100%;
+            text-align: center;
+            padding: 7px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .modal .modal-content .desc .desc-content button{
+            display: block;
+            width: 100%;
+            border: none;
+            background-color: crimson;
+            color: #fff;
+            padding: 7px;
+            cursor: pointer;
+            outline: none;
+        }
+        /*  */
+    </style>
+</head>
+<body>
+    <button class="btn-open">뉴스레터 구독하기</button>
+    <!-- 모달 전체 -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="photo"></div>
+            <div class="desc">
+                <div class="desc-header">
+                    <h2>지금 다양한 혜택을 받아보세요.</h2>
+                    <button class="btn-close">x</button>
+                </div>
+                <div class="desc-content">
+                    <input type="email" placeholder="이메일 주소를 입력하세요." />
+                    <button>뉴스레터 구독하기</button>
+                    <p>
+                    스타트업메이트 뉴스룸의 다양한 소식과 혜택을 이메일로 받아
+                    보시려면 구독 신청 해주시기 바랍니다. 스타트업메이트에 대해 알고
+                    싶은 뉴스, 꼭 알아야 할 뉴스를 신속하고 정확하게 전합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 오버레이 : 검은색 투명도 줄 예정 -->
+    <div class="overlay"></div>
+
+
+    <!-- javaScript -->
+     <script>
+        // [뉴스레터 구독하기]버튼을 클릭하면 모달창이 화면에 출력
+        // [X]버튼을 클릭하면 모달창이 화면에서 사라지도록 작성
+        // ‘active’라는 클래스명을 classList.add( )를 이용하여 추가하여 작성
+        // classList.remove( ) 메서드를 이용하여 작성
+
+        // DOM 접근
+        let btn_open = document.querySelector('.btn-open');
+        let btn_close = document.querySelector('.btn-close');
+        let modal = document.querySelector('.modal');
+        let overlay = document.querySelector('.overlay');
+
+        // btn_open.onclick = function(){
+        //     modal.classList.add('active');
+        //     // // console.log(modal);
+        //     overlay.classList.add('active');
+        // }
+
+        btn_open.addEventListener("click",() => {
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        })
+
+        // btn_close.onclick = function(){
+        //     modal.classList.remove('active');
+        //     overlay.classList.remove('active');
+        // }
+
+        btn_close.addEventListener("click",() =>{
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        })
+     </script>
+</body>
+</html>

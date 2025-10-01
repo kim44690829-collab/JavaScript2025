@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* 전체 폰트 변경 */
+body{
+    font-family: sans-serif;
+}
+/* 전체 사이즈 및 가운데 정렬 */
+.megabox_container{
+    width: 1200px;
+    margin: 10px auto;
+}
+/* header css */
+header{
+    display: flex;
+    flex-direction: column;
+}
+header .header_TC{
+    position: relative;
+}
+/* header_top css 및 좌우 float */
+header .header_top{
+    margin-bottom: 5px;
+}
+header .header_top .memberShip{
+    float: left;
+}
+header .header_top .memberShip a{
+    margin-right: 15px;
+    font-size: 14px;
+    color: #333;
+}
+header .header_top .memberShip a:hover{
+    text-decoration: underline;
+    color: black;
+}
+header .header_top .logout{
+    float: right;
+}
+header .header_top .logout a{
+    margin-left: 15px;
+    font-size: 14px;
+    color: #333;
+}
+header .header_top .logout a:hover{
+    text-decoration: underline;
+    color: black;
+}
+/* 메인로고 position으로 띄우기 */
+header .header_center .main_logo{
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+}
+/* header_center css 및 정렬 */
+header .header_center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    width: 1200px;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+    padding-bottom: 3px;
+}
+/* header_center 좌측 목록 및 검색버튼 css */
+header .header_center .search button{
+    background-color: transparent;
+    border: none;
+    margin-right: 20px;
+    padding: 20px 0;
+}
+header .header_center .search button:hover{
+    cursor: pointer;
+    color: black;
+}
+header .header_center .search button i{
+    font-size: 20px;
+    color: #333;
+}
+/* 목록버튼 토글 */
+header .header_bottom .list_toggle{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1200px;
+    background-color: #333;
+    color: #eee;
+}
+/* 검색 버튼 토글 */
+header .header_bottom .search_toggle{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1200px;
+    background-color: rgb(73, 0, 141);
+}
+/* 메인로고 기준 좌측 메뉴 */
+header .header_center .menu1{
+    margin-right: 100px;
+}
+header .header_center .menu1 a{
+    margin-right: 80px;
+    font-size: 18px;
+    padding: 15px 0;
+}
+header .header_center .menu1 a:hover{
+    border-bottom: 5px solid blueviolet;
+    color: blueviolet;
+}
+/* 메인로고 기준 우측 메뉴 */
+header .header_center .menu2 a{
+    margin-left: 80px;
+    font-size: 18px;
+    padding: 15px 0;
+}
+header .header_center .menu2 a:hover{
+    border-bottom: 5px solid blueviolet;
+    color: blueviolet;
+}
+/* 마이페이지, 상영시간표 */
+header .header_center .myPage a{
+    margin-left: 20px;
+    padding: 20px 0;
+}
+header .header_center .myPage a i{
+    font-size: 23px;
+    color: #333;
+}
+/* header_bottom css */
+header .header_bottom{
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    position: relative;
+}
+header .header_bottom i, header .header_bottom .bottom1{
+    color: rgb(73, 73, 73);
+}
+header .header_bottom .bottom1:hover{
+    text-decoration: underline;
+    color: black;
+}
+header .header_bottom span{
+    margin: 0 10px;
+    color: rgb(73, 73, 73);
+}
+/* 목록 토글 후 css */
+header .header_bottom .list_toggle.list{
+    display: block;
+    padding: 0 30px 50px 30px;
+}
+header .header_bottom .list_toggle.list h1{
+    margin: 40px 0 40px 18px;
+    font-size: 30px;
+}
+header .header_bottom .list_toggle.list .list01{
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+header .header_bottom .list_toggle.list ul{
+    width: 170px;
+    margin-left: 20px;
+    text-align: center;
+}
+header .header_bottom .list_toggle.list ul li{
+    margin-bottom: 15px;
+    color: #999;
+}
+header .header_bottom .list_toggle.list ul a > li:hover{
+    color: white;
+    text-decoration: underline;
+} 
+header .header_bottom .list_toggle.list ul .list_title{
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #999;
+    border-top: 1px solid #999;
+}
+/* 검색 토글 이후 */
+header .header_bottom .search_toggle.input_toggle{
+    display: block;
+    padding: 50px;
+}
+/* 예매율, 메가박스 관객순 버튼 */
+header .header_bottom .search_toggle .toggle_top button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    margin: 0 20px 20px 0;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+/* 영화 랭킹과 검색창을 묶는 div */
+header .header_bottom .search_toggle .img_search{
+    display: flex;
+    align-items: center;
+    width: 1200px;
+}
+/* 영화 포스터와 랭킹을 묶는 div */
+header .header_bottom .search_toggle .img_search .img_ranking{
+    display: flex;
+    /* display: none; */
+    flex: 1;
+}
+
+/* 영화 포스터 및 영화 예매율순 랭킹 */
+header .header_bottom .search_toggle .img_search .movieImg{
+    flex: 1;
+}
+header .header_bottom .search_toggle .img_search .movieImg img{
+    width: 150px;
+    height: 200px;
+}
+header .header_bottom .search_toggle .img_search .movieImg .img_sub{
+    display: none;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking{
+    display: flex;
+    flex-direction: column;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking > a{
+    color: #fff;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking > a:hover{
+    text-decoration: underline;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking .movieNum{
+    display: inline-block;
+    color: #fff;
+    margin: 5px 20px 18px 20px;
+    font-size: 20px;
+    font-style: italic;
+}
+/* 영화 관객순 랭킹 */
+header .header_bottom .search_toggle .img_search{
+    display: flex;
+    align-items: center;
+    width: 1200px;
+}
+/* 영화 포스터와 랭킹을 묶는 div */
+header .header_bottom .search_toggle .img_search .img_ranking2{
+    display: flex;
+    /* display: none; */
+    flex: 1;
+}
+/* 영화 포스터 및 영화 예매율순 랭킹 */
+header .header_bottom .search_toggle .img_search .movieImg2{
+    flex: 1;
+}
+header .header_bottom .search_toggle .img_search .movieImg2 img{
+    width: 150px;
+    height: 200px;
+}
+header .header_bottom .search_toggle .img_search .movieImg2 .img_sub2{
+    display: none;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking2{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking2 > a{
+    color: #fff;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking2 > a:hover{
+    text-decoration: underline;
+}
+header .header_bottom .search_toggle .img_search .movie_ranking2 .movieNum{
+    display: inline-block;
+    color: #fff;
+    margin: 5px 20px 18px 20px;
+    font-size: 20px;
+    font-style: italic;
+}
+/* 영화 검색창 */
+header .header_bottom .search_toggle .img_search .inputSearch{
+    flex: 2;
+    text-align: center;
+}
+header .header_bottom .search_toggle .img_search .inputSearch form{
+    position: relative;
+}
+header .header_bottom .search_toggle .img_search .inputSearch form input{
+    width: 400px;
+    padding: 20px 0 15px 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+header .header_bottom .search_toggle .img_search .inputSearch form input::placeholder{
+    color: #fff;
+}
+header .header_bottom .search_toggle .img_search .inputSearch form button{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 210px;
+    bottom: 15px;
+}
+header .header_bottom .search_toggle .img_search .inputSearch form button:hover{
+    cursor: pointer;
+}
+header .header_bottom .search_toggle .img_search .inputSearch form button i{
+    color: #fff;
+}

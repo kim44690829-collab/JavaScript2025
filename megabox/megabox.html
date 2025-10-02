@@ -296,10 +296,185 @@
                 </div>
             </div>
         </header>
+        <section>
+            <h1>빠른예매</h1>
+            <!-- <hr/> -->
+            <!-- 섹션wrap 시작 -->
+            <div class="section_wrap">
+                <!-- 섹션왼쪽 -->
+                <div class="section_left">
+                    <div class="viewCount">
+                        <span>관람인원선택</span>
+                        <button type="button" class="reset_btn">
+                            초기화
+                        </button>
+                    </div>
+                    <div class="headCount">
+                        <div class="adult">
+                            <span>성인</span>
+                            <button type="button" class="minus_btn" title="성인 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="성인 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="성인 좌석 선택 증가">+</button>
+                        </div>
+                        <div class="teen">
+                            <span>청소년</span>
+                            <button type="button" class="minus_btn" title="청소년 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="청소년 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="청소년 좌석 선택 증가">+</button>
+                        </div>
+                        <div class="senior">
+                            <span>경로</span>
+                            <button type="button" class="minus_btn" title="경로 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="경로 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="경로 좌석 선택 증가">+</button>
+                        </div>
+                        <div class="discount">
+                            <span>우대</span>
+                            <button type="button" class="minus_btn" title="우대 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="우대 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="우대 좌석 선택 증가">+</button>
+                        </div>
+                    </div>
+                    <!-- 좌석배열부분 묶음 -->
+                    <div class="reserve">
+                        <h5>SCREEN</h5>
+                        <!-- 좌석 테이블 위치 -->
+                        <div class="seat"></div>
+                    </div>
+                </div>
+                <!-- 섹션오른쪽 -->
+                <div class="section_right">
+                    <div class="tit-area">
+                        <p class="tit">극장판 체인소 맨: 레제편</p>
+                        <p class="cate">2D(자막)</p>
+                    </div>
+                    <div class="info-area">
+                        <!-- 예약시간/날짜 등 정보 -->
+                        <div class="info-left">
+                            <p>강남</p>
+                            <p>르 리클라이너 3관</p>
+                            <p>2025.10.02(목)</p>
+                            <div class="other-time">
+                                <button type="button">10:50~12:43</button>
+                                <!-- <ul></ul> -->
+                            </div>
+                        </div>
+                        <!-- 포스터 -->
+                        <div class="info-right">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <!-- 좌석 -->
+                    <div class="seat-area">
+                        <div class="seat-left">
+                            <ul>
+                                <li>
+                                    <span>선택</span>
+                                </li>
+                                <li>
+                                    <span>선택불가</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="seat-right">
+                            <p>선택좌석</p>
+                            <!-- 선택한 좌석표시 -->
+                            <div class="seat-choice">
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 최종결제금액 -->
+                    <div class="pay-area">
+                        <p class="pay-type"></p>
+                        <div class="pay-calc">
+                            <span>최종결제금액</span>
+                            <span class="totalPrice"></span>
+                        </div>
+                    </div>
+                    <!-- 이전/다음버튼 -->
+                    <div class="btn-group">
+                        <a href="#">이전</a>
+                        <a href="#">다음</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 섹션wrap 끝 -->
+        </section>
+        <footer>
+            <div class="footer_top">
+                <div class="company_intro">
+                    <a href="#none">회사소개</a>
+                    <a href="#none">인재채용</a>
+                    <a href="#none">사회공헌</a>
+                    <a href="#none">제휴/광고/부대사업문의</a>
+                    <a href="#none">이용약관</a>
+                    <a href="#none"><strong>위치기반서비스 이용약관</strong></a>
+                    <a href="#none"><strong>개인정보처리방침</strong></a>
+                    <a href="#none">윤리경영</a>
+                </div>
+                <div class="theater">
+                    <a href="#none">극장찾기</a>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <img src="">
+                <p>
+                서울특별시 강남구 테헤란로 87길 22 도심공항터미널 건물 408호 ARS 1544-0070 대표이메일 m.dreamcenter@partner.megabox.co.kr
+                대표자명 홍정인, 남용석 · 개인정보보호책임자 김수현 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 2025-서울강남-00722
+                COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+                </p>
+                <a href="#none"></a>
+                <a href="#none"></a>
+                <a href="#none"></a>
+                <a href="#none"></a>
+            </div>
+        </footer>
+        <div class="modal">
+            <div class="modal_count8">
+                <div class="modal_header">
+                    <span>알림</span>
+                    <button type="button" class="modal_btn">x</button>
+                </div>
+                <div class="modal_center">
+                    <p>인원선택은 총 8명까지 가능합니다.</p>
+                    <button type="button" class="modal_btn">확인</button>  
+                </div>
+            </div>
+        </div>
+        <div class="modal2">
+            <div class="modal_senior">
+                <div class="modal_header2">
+                    <span>알림</span>
+                    <button type="button" class="modal_btn">x</button>
+                </div>
+                <div class="modal_center">
+                    <p>
+                    경로 : 만 65세 이상(신분증)
+                    <br/>
+                    <br/>
+                    경로요금은 만65세 이상 고객에게만 적용되며, 상영관 입장시 본인신분증을 제시해 주시기 바랍니다(*미지참시 입장 제한)
+                    <br/>
+                    <br/>
+                    *경로선택 시 추가 할인이 제한될 수 있습니다
+                    </p>
+                    <button type="button" class="modal_btn">확인</button>  
+                </div>
+            </div>
+        </div>
+        <!-- 오버레이 -->
+        <div class="overlay"></div>
     </div>
 
     <script>
-        // 목록 및 검색 토글을 위한 document
+         // 목록 및 검색 토글을 위한 document
         let list_btn = document.querySelector('#list_btn');
         let search_btn = document.querySelector('#search_btn');
         let list_toggle = document.querySelector('.list_toggle');
@@ -341,10 +516,285 @@
 
         // 예매율순, 관객순을 누르면 서로 바뀌게 하는 스크립트
         img_ranking2.style.display = 'none';
-        ranking_order[0].addEventListener('click',() => {
-            
+        ranking_order[1].addEventListener('click',() => {
+            if( img_ranking2.style.display = 'none'){
+                img_ranking2.style.display = 'block';
+                img_ranking.style.display = 'none';
+            }
         })
+        ranking_order[0].addEventListener('click',() => {
+            if( img_ranking.style.display = 'none'){
+                img_ranking.style.display = 'block';
+                img_ranking2.style.display = 'none';
+            }
+        })
+
+        // section 성인,청소년,경로,우대 기능
+        let plus_btn = document.querySelectorAll('.plus_btn');  // 더하기 버튼
+        let minus_btn = document.querySelectorAll('.minus_btn'); //빼기 버튼
+        let count_btn = document.querySelectorAll('.count_btn'); // 숫자값 버튼
+        console.log(plus_btn);
+        console.log(count_btn);
+        let sumCount = 0;
+
+        // 8명보다 더 많은 예약시 모달창
+        let overlay = document.querySelector('.overlay');
+        let modal_count8 = document.querySelector('.modal_count8');
+        let modal_btn = document.querySelectorAll('.modal_btn');
+
+
+        //우측 선택좌석 네모칸 선택자
+        let seatSelect = document.querySelectorAll('.seat-select');
+        //우측 선택좌석 네모칸 기본세팅
+        for(let i=0; i<seatSelect.length; i++){
+            seatSelect[i].textContent = '-';
+        }
+
+        // 플러스버튼 클릭시
+        for(let i = 0; i < plus_btn.length; i++){
+            plus_btn[i].addEventListener('click', () => {  
+                console.log(plus_btn[i]);
+                // 합계 8명 이하면 증가
+                if(sumCount < 8){
+                    count_btn[i].textContent++;
+                    sumCount += 1;
+                }else{ //8명 이상이면 모달창
+                    overlay.classList.add('active');
+                    modal_count8.classList.add('active');
+                }
+                //우측 '선택'네모 증가
+                for(let l=0; l<sumCount; l++){
+                    seatSelect[l].classList.add('possible');
+                }                
+
+                //배열 루프를 돌려서
+                for(let j=0;j<seatArr.length;j++){//행
+                    for(let k=0; k<seatArr[j].length; k++){//열
+                        //만약 한명만 입력했다면
+                        if(sumCount == 1){      
+                            //각 행의 짝수열(2,4,6,8,10)만 선택불가(unavailSeats) 클래스 추가
+                            if(k % 2 == 0) seatTr[j].children[k].classList.add('unavailSeats');
+                        }else{
+                            // 총 인원수 1명 이외는 선택불가(unavailSeats)클래스 제거
+                            seatTr[j].children[k].classList.remove('unavailSeats');
+                            // 그러나 테이블 첫번째 열(알파벳)에만
+                            // 선택불가(unavailSeats)클래스 다시 주기
+                            seatTr[j].children[0].classList.add('unavailSeats');
+                        }
+                    }
+                }
+            })
+        }
+
+        //마이너스 버튼 클릭시
+        for(let i = 0; i < minus_btn.length; i++){
+            minus_btn[i].addEventListener('click', () => {               
+
+                // 합계 0 이상이면 감소
+                if(count_btn[i].textContent > 0){
+                    count_btn[i].textContent--;
+                    sumCount--;
+                    //console.log(sumCount);
+                    //우측 '선택'네모 감소
+                    seatSelect[sumCount].classList.remove('possible');
+                }
+
+                
+
+                //배열 루프를 돌려서
+                for(let j=0;j<seatArr.length;j++){//행
+                    for(let k=0; k<seatArr[j].length; k++){//열
+                        //만약 한명만 입력했다면
+                        if(sumCount == 1){      
+                            //각 행의 짝수열(2,4,6,8,10)만 선택불가(unavailSeats) 클래스 추가
+                            if(k % 2 == 0) seatTr[j].children[k].classList.add('unavailSeats');
+                        }else{
+                            // 총 인원수 1명 이외는 선택불가(unavailSeats)클래스 제거
+                            seatTr[j].children[k].classList.remove('unavailSeats');
+                            // 그러나 테이블 첫번째 열(알파벳)에만
+                            // 선택불가(unavailSeats)클래스 다시 주기
+                            seatTr[j].children[0].classList.add('unavailSeats');
+                        }
+                    }
+                }
+            })
+        }
+        
+        for(let i = 0; i < modal_btn.length; i++){
+            modal_btn[i].addEventListener('click', () => {
+                overlay.classList.remove('active');
+                modal_count8.classList.remove('active');
+            })
+        }
+
+        // 경로 모달창
+        let modal_senior = document.querySelector('.modal_senior');
+        plus_btn[2].addEventListener('click',() => {
+            if(count_btn[2].textContent == 1){
+                modal_senior.classList.add('active');
+                overlay.classList.add('active');
+            }
+        })
+        for(let i = 0; i < modal_btn.length; i++){
+            modal_btn[i].addEventListener('click', () => {
+                overlay.classList.remove('active');
+                modal_senior.classList.remove('active');
+            })
+        }
+
+        //좌석배열 생성
+        let seatArr = Array.from(Array(10),() => new Array(11));
+        //알파벳 배열생성
+        let alpa = ['A','B','C','D','E','F','G','H','I','J'];
+        //테이블 결과값
+        let result = `<table>`;
+
+        //좌석 배열 테이블 생성
+        for(let i=0;i<seatArr.length;i++){//행
             
+            result += `<tr>`;
+            
+            for(let j=0;j<seatArr[i].length;j++){//열
+
+                result += `<td>`;
+
+                if(j==0){// 첫 행 시작마다 알파벳이 바뀌게
+                    seatArr[i][j] = alpa[i];
+                }else{// 나머지 행에는 인덱스 순서대로 저장
+                    seatArr[i][j] = j;
+                }                    
+
+                result += `${seatArr[i][j]}</td>`;
+            }
+            
+            result += `</tr>`;
+        }
+        result += `</table>`;
+
+        //좌석 테이블 출력
+        let seat = document.querySelector('.seat');
+        seat.innerHTML = result;
+
+
+        // 유형별 ID 선택자
+        let adult = document.querySelector('.adult .count_btn');
+        let teen = document.querySelector('.teen .count_btn');
+        let senior = document.querySelector('.senior .count_btn');
+        let discount = document.querySelector('.discount .count_btn');
+   
+        //총 인원수 합산
+        let headCount = 0;
+
+        //입력값(인원수) 초기화
+        let adultNum = 0;
+        let teenNum = 0;
+        let seniorNum = 0;
+        let discountNum = 0;
+
+        //좌석 테이블의 tr(행) 선택자
+        let seatTr = document.querySelectorAll('.seat table tr');
+
+        for(let i=0;i<seatArr.length;i++){//행 
+            for(let j=0;j<seatArr[i].length;j++){//열
+
+                // 테이블 첫번째 열(알파벳)에만
+                // 선택불가(unavailSeats)클래스 주기
+                if(j == 0){
+                    seatTr[i].children[j].classList.add('unavailSeats');
+                }
+
+                //좌석 클릭시
+                seatTr[i].children[j].addEventListener('click',()=>{
+
+                    //입력값(인원수) number로 저장
+                    adultNum = Number(adult.textContent);
+                    teenNum = Number(teen.textContent);
+                    seniorNum = Number(senior.textContent);
+                    discountNum = Number(discount.textContent);
+       
+                    //총 인원수 합산
+                    headCount = adultNum + teenNum + seniorNum + discountNum;
+
+                    //선택된 좌석 클래스
+                    let selectedSeat = document.querySelectorAll('.selectedSeat');
+                    
+                    //인원수 합산이 0명일때
+                    if(headCount == 0){
+                        alert('관람하실 인원을 먼저 선택해주세요.');
+                    //인원수보다 더 많은 좌석을 선택했을때
+                    }else if(headCount < selectedSeat.length+1){
+                         //이미 선택된 좌석이 있을때
+                        if(seatTr[i].children[j].classList == 'selectedSeat'){
+                            // 선택된 좌석(selectedSeat) 클래스 제거
+                            seatTr[i].children[j].classList.remove('selectedSeat');
+                        }else{//이미 선택된 좌석이 없어도 선택수량이 초과되었기때문에
+                            alert('좌석 선택이 완료되었습니다.');
+                            seatTr[i].children[j].classList.remove('selectedSeat');
+                        }
+                    }else{
+                        //이미 선택된 좌석이 있을때
+                        if(seatTr[i].children[j].classList == 'selectedSeat'){
+                            // 선택된 좌석(selectedSeat) 클래스 제거
+                            seatTr[i].children[j].classList.remove('selectedSeat');
+                        //선택 불가(unavailSeats)좌석이 있을때
+                        }else if(seatTr[i].children[j].classList == 'unavailSeats'){
+                            return //아무것도 없이 종료
+                        }else{//그외 (빈 좌석들)에는
+                            //선택된 좌석(selectedSeat) 클래스 추가
+                            seatTr[i].children[j].classList.add('selectedSeat');
+                        }
+                    }
+                    
+                    //
+                    let possible = document.querySelectorAll('.possible');
+
+                    if(possible.length > 0){
+                        possible[0].classList.add('choice');                        
+                        possible[0].classList.remove('possible');
+                    }else{
+
+                    }
+
+
+                })
+            }
+        }
+        
+
+
+        //초기화 버튼 선택자
+        let reset = document.querySelector('.reset_btn');
+
+
+        //초기화 버튼 클릭시 동작
+        reset.addEventListener('click',()=>{
+            //모든 값 0으로 초기화
+            adultNum = 0;
+            teenNum = 0;
+            seniorNum = 0;
+            discountNum = 0;
+            headCount = 0;
+            sumCount = 0;
+
+            //인원수 입력 input 갯수만큼 루프
+            for(let i=0; i<count_btn.length; i++){
+                //입력창도 0으로 표시
+                count_btn[i].textContent = 0;                                
+            }
+
+            //좌석 배열 루프를 돌려서
+            for(let j=0;j<seatArr.length;j++){//행
+                for(let k=0; k<seatArr[j].length; k++){//열
+                    //좌석에 지정된 모든 클래스 제거
+                    seatTr[j].children[k].classList.remove('selectedSeat');
+                    seatTr[j].children[k].classList.remove('unavailSeats');
+                    //0번째열(알파벳)만 다시 클래스 추가
+                    seatTr[j].children[0].classList.add('unavailSeats');
+                }
+            }
+        })
+
+       
     </script>
 </body>
 </html>

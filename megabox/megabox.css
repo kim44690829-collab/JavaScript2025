@@ -6,7 +6,9 @@ body{
 /* 전체 사이즈 및 가운데 정렬 */
 .megabox_container{
     width: 1200px;
+    height: 100vh;
     margin: 10px auto;
+    position: relative;
 }
 /* header css */
 header{
@@ -196,7 +198,7 @@ header .header_bottom .search_toggle .toggle_top button{
 header .header_bottom .search_toggle .img_search{
     display: flex;
     align-items: center;
-    width: 1200px;
+    width: 1500px;
 }
 /* 영화 포스터와 랭킹을 묶는 div */
 header .header_bottom .search_toggle .img_search .img_ranking{
@@ -207,7 +209,8 @@ header .header_bottom .search_toggle .img_search .img_ranking{
 
 /* 영화 포스터 및 영화 예매율순 랭킹 */
 header .header_bottom .search_toggle .img_search .movieImg{
-    flex: 1;
+    display: flex;
+    width: 150px;
 }
 header .header_bottom .search_toggle .img_search .movieImg img{
     width: 150px;
@@ -219,6 +222,7 @@ header .header_bottom .search_toggle .img_search .movieImg .img_sub{
 header .header_bottom .search_toggle .img_search .movie_ranking{
     display: flex;
     flex-direction: column;
+    width: 250px;
 }
 header .header_bottom .search_toggle .img_search .movie_ranking > a{
     color: #fff;
@@ -233,16 +237,9 @@ header .header_bottom .search_toggle .img_search .movie_ranking .movieNum{
     font-size: 20px;
     font-style: italic;
 }
-/* 영화 관객순 랭킹 */
-header .header_bottom .search_toggle .img_search{
-    display: flex;
-    align-items: center;
-    width: 1200px;
-}
 /* 영화 포스터와 랭킹을 묶는 div */
 header .header_bottom .search_toggle .img_search .img_ranking2{
     display: flex;
-    /* display: none; */
     flex: 1;
 }
 /* 영화 포스터 및 영화 예매율순 랭킹 */
@@ -304,4 +301,318 @@ header .header_bottom .search_toggle .img_search .inputSearch form button:hover{
 }
 header .header_bottom .search_toggle .img_search .inputSearch form button i{
     color: #fff;
+}
+/* section */
+.megabox_container section{
+    width: 1200px;
+}
+.megabox_container section h1{
+    padding: 30px 0;
+    font-size: 30px;
+}
+.megabox_container section .viewCount{
+    width: 770px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 1px solid #333;
+}
+.megabox_container section .headCount{
+    width: 770px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(245, 245, 245);; */
+    /* background-color: rgb(187, 187, 187); */
+    padding: 10px;
+}
+.megabox_container section .headCount .adult,
+.megabox_container section .headCount .teen,
+.megabox_container section .headCount .senior,
+.megabox_container section .headCount .discount{
+    display: inline-flex;
+}
+.megabox_container section .headCount span{
+    color: #333;
+    margin-right: 10px;
+    line-height: 1.5em;
+}
+.megabox_container section .headCount button[type="button"].minus_btn{
+    padding: 5px 12px;
+    border: 1px solid lightgray;
+}
+.megabox_container section .headCount button[type="button"].count_btn{
+    padding: 5px 10px;
+    border: 1px solid lightgray;
+}
+.megabox_container section .headCount button[type="button"].plus_btn{
+    padding: 5px 10px;
+    border: 1px solid lightgray;
+}
+/* footer */
+.megabox_container footer{
+    position: absolute;
+    bottom: 0;
+}
+
+/* 모달창 */
+.megabox_container .modal{
+    /* border: 1px solid red; */
+    z-index: 10;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+}
+.megabox_container .modal .modal_count8{
+    background-color: #fff;
+    width: 300px;
+    padding: 0 0 10px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.16);
+}
+.megabox_container .modal .modal_count8 .modal_header{
+    position: relative;
+}
+.megabox_container .modal .modal_count8 .modal_header span{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 15px;
+    background-color: blueviolet;
+    color: #fff;
+}
+.megabox_container .modal .modal_count8 .modal_header > .modal_btn{
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+}
+.megabox_container .modal .modal_count8 .modal_header > .modal_btn:hover{
+    cursor: pointer;
+}
+.megabox_container .modal .modal_count8 .modal_center{
+    background-color: #fff;
+    margin: 10px;
+}
+.megabox_container .modal .modal_count8 .modal_center p{
+    text-align: center;
+    margin: 20px;
+    color: #333;
+}
+.megabox_container .modal .modal_count8 .modal_center .modal_btn{
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: blueviolet;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.megabox_container .modal .modal_count8 .modal_center .modal_btn:hover{
+    background-color: rgb(81, 0, 156);
+    cursor: pointer;
+}
+.megabox_container .overlay{
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+/* 모달 실행 */
+.megabox_container .overlay.active{
+    visibility: visible;
+}
+.megabox_container .modal.active{
+    visibility: visible;
+}
+
+/* 섹션 시작 */
+.section_wrap{
+    display: flex;
+    justify-content: center;            
+}
+/* 섹션 왼쪽부분 */
+.section_left{
+    padding: 50px 0;
+    width: 770px;
+    border: 1px solid #d8d9db;
+}
+.section_left .reserve h5{
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+/* 좌석 테이블 */
+.section_left .reserve .seat table{
+    border-spacing: 3px;
+    border-collapse: separate;
+    margin: 0 auto;
+}
+.section_left .reserve .seat table td{
+    border: 1px solid #02bfd3;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 5px;
+    background-color: #e5b200;
+    color: #fff;
+    cursor: pointer;            
+}
+/* 좌석 테이블 - 행시작(알파벳 칸) */
+.section_left .reserve .seat table tr>td:first-child{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #c5c5c5;
+    cursor:default;
+}
+/* 선택 좌석 클래스 */
+.section_left .reserve .seat table td.selectedSeat{
+    background-color: #503396;
+}
+/* 선택불가 좌석 클래스 */
+.section_left .reserve .seat table td.unavailSeats{
+    background-color: #ccc;
+    cursor: default;
+}
+
+/* 섹션 오른쪽 부분 */
+.section_right{
+    border: 1px solid #000;
+    margin-left: 15px;
+    width: 310px;
+}
+
+/* 선택한 좌석표시 */
+.section_right .seat-area .seat-right .seat-choice{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 116px;
+    flex-wrap: wrap;
+    
+}
+.section_right .seat-area .seat-right .seat-choice .seat-select{
+    width: 40px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #5c5c5c;
+    text-align: center;
+}
+.section_right .seat-area .seat-right .seat-choice .seat-select.choice{
+    background-color: #503396;
+}
+.section_right .seat-area .seat-right .seat-choice .seat-select.possible{
+    background-color: #53565b;
+}
+
+
+
+/* 모달창 */
+.megabox_container .modal,
+.megabox_container .modal2{
+    /* border: 1px solid red; */
+    z-index: 10;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.megabox_container .modal .modal_count8{
+    background-color: #fff;
+    width: 300px;
+    padding: 0 0 10px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.16);
+    visibility: hidden;
+}
+.megabox_container .modal2 .modal_senior{
+    background-color: #fff;
+    width: 400px;
+    height: 350px;
+    padding: 0 0 10px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.16);
+    display: none;
+}
+/* .megabox_container .modal .modal_senior{} */
+.megabox_container .modal .modal_count8 .modal_header,
+.megabox_container .modal2 .modal_senior .modal_header2{
+    position: relative;
+}
+.megabox_container .modal .modal_count8 .modal_header span,
+.megabox_container .modal2 .modal_senior .modal_header2 span{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 15px;
+    background-color: blueviolet;
+    color: #fff;
+}
+.megabox_container .modal .modal_count8 .modal_header > .modal_btn,
+.megabox_container .modal2 .modal_senior .modal_header2 > .modal_btn{
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+}
+.megabox_container .modal .modal_count8 .modal_header > .modal_btn:hover,
+.megabox_container .modal2 .modal_senior .modal_header2 > .modal_btn:hover{
+    cursor: pointer;
+}
+.megabox_container .modal .modal_count8 .modal_center,
+.megabox_container .modal2 .modal_senior .modal_center{
+    background-color: #fff;
+    margin: 10px;
+}
+.megabox_container .modal .modal_count8 .modal_center p{
+    text-align: center;
+    margin: 20px;
+    color: #333;
+}
+.megabox_container .modal2 .modal_senior .modal_center p{
+    display: inline-block;
+    margin: 10px 0 20px 10px;
+    padding: 15px;
+    line-height: 1.5em;
+}
+.megabox_container .modal .modal_count8 .modal_center .modal_btn,
+.megabox_container .modal2 .modal_senior .modal_center .modal_btn{
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: blueviolet;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.megabox_container .modal .modal_count8 .modal_center .modal_btn:hover,
+.megabox_container .modal2 .modal_senior .modal_center .modal_btn:hover{
+    background-color: rgb(81, 0, 156);
+    cursor: pointer;
+}
+.megabox_container .overlay{
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+/* 모달 실행 */
+.megabox_container .overlay.active{
+    visibility: visible;
+}
+.megabox_container .modal .modal_count8.active{
+    visibility: visible;
+}
+.megabox_container .modal2 .modal_senior.active{
+    display: block;
 }

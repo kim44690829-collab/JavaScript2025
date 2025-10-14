@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MegaBox</title>
-    <link rel="stylesheet" href="megabox.css">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style/megabox.css">
+    <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -47,22 +47,28 @@
                             <li>
                                 <a href="#none" class="depth1" title="영화">영화</a>
                                 <ul class="depth2">
-                                    <li><a href="#none" title="전체영화">전체영화</a></li>
+                                    <div class="movie">
+                                        <li><a href="#none" title="전체영화">전체영화</a></li>
+                                    </div>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#none" class="depth1" title="예매">예매</a>
                                 <ul class="depth2">
-                                    <li><a href="#none" title="빠른예매">빠른예매</a></li>
-                                    <li><a href="#none" title="상영시간표">상영시간표</a></li>
-                                    <li><a href="#none" title="더 부티크 프라이빗 예매">더 부티크 프라이빗 예매</a></li>
+                                    <div class="reservation">
+                                        <li><a href="#none" title="빠른예매">빠른예매</a></li>
+                                        <li><a href="#none" title="상영시간표">상영시간표</a></li>
+                                        <li><a href="#none" title="더 부티크 프라이빗 예매">더 부티크 프라이빗 예매</a></li>
+                                    </div>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#none" class="depth1" title="극장">극장</a>
                                 <ul class="depth2">
-                                    <li><a href="#none" title="전체극장">전체극장</a></li>
-                                    <li><a href="#none" title="특별관">특별관</a></li>
+                                    <div class="cinema">
+                                        <li><a href="#none" title="전체극장">전체극장</a></li>
+                                        <li><a href="#none" title="특별관">특별관</a></li>
+                                    </div>
                                 </ul>
                             </li>
                         </ul>
@@ -71,24 +77,30 @@
                             <li>
                                 <a href="#none" class="depth1" title="이벤트">이벤트</a>
                                 <ul class="depth2">
-                                    <li><a href="#none" title="진행중 이벤트">진행중 이벤트</a></li>
-                                    <li><a href="#none" title="지난 이벤트">지난 이벤트</a></li>
-                                    <li><a href="#none" title="당첨자발표">당첨자발표</a></li>
+                                    <div class="event">
+                                        <li><a href="#none" title="진행중 이벤트">진행중 이벤트</a></li>
+                                        <li><a href="#none" title="지난 이벤트">지난 이벤트</a></li>
+                                        <li><a href="#none" title="당첨자발표">당첨자발표</a></li>
+                                    </div>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#none" class="depth1" title="스토어">스토어</a>
                                 <ul class="depth2">
-                                    <li><a href="#none" title="새로운상품">새로운상품</a></li>
-                                    <li><a href="#none" title="메가티켓">메가티켓</a></li>
-                                    <li><a href="#none" title="팝콘/음료/굿즈">팝콘/음료/굿즈</a></li>
+                                    <div class="store">
+                                        <li><a href="#none" title="새로운상품">새로운상품</a></li>
+                                        <li><a href="#none" title="메가티켓">메가티켓</a></li>
+                                        <li><a href="#none" title="팝콘/음료/굿즈">팝콘/음료/굿즈</a></li>
+                                    </div>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#none" class="depth1" title="혜택">혜택</a>
                                 <ul class="depth2">
-                                    <li><a href="#none" title="메가박스 멤버십">메가박스 멤버십</a></li>
-                                    <li><a href="#none" title="제휴/할인">제휴/할인</a></li>
+                                    <div class="benefit">
+                                        <li><a href="#none" title="메가박스 멤버십">메가박스 멤버십</a></li>
+                                        <li><a href="#none" title="제휴/할인">제휴/할인</a></li>
+                                    </div>
                                 </ul>
                             </li>
                         </ul>
@@ -582,7 +594,7 @@
             depth2[4].classList.remove('on');
             depth2[5].classList.remove('on');
         })
-        depth2[0].addEventListener('mouseout',() => {
+        depth2[0].addEventListener('mouseleave',() => {
             depth2[0].classList.remove('on');
         })
         depth1[1].addEventListener('mouseover',() => {
@@ -593,7 +605,7 @@
             depth2[4].classList.remove('on');
             depth2[5].classList.remove('on');
         })
-        depth2[1].addEventListener('mouseout',() => {
+        depth2[1].addEventListener('mouseleave',() => {
             depth2[1].classList.remove('on');
         })
         depth1[2].addEventListener('mouseover',() => {
@@ -604,7 +616,7 @@
             depth2[4].classList.remove('on');
             depth2[5].classList.remove('on');
         })
-        depth2[2].addEventListener('mouseout',() => {
+        depth2[2].addEventListener('mouseleave',() => {
             depth2[2].classList.remove('on');
         })
         depth1[3].addEventListener('mouseover',() => {
@@ -615,7 +627,7 @@
             depth2[4].classList.remove('on');
             depth2[5].classList.remove('on');
         })
-        depth2[3].addEventListener('mouseout',() => {
+        depth2[3].addEventListener('mouseleave',() => {
             depth2[3].classList.remove('on');
         })
         depth1[4].addEventListener('mouseover',() => {
@@ -626,7 +638,7 @@
             depth2[3].classList.remove('on');
             depth2[5].classList.remove('on');
         })
-        depth2[4].addEventListener('mouseout',() => {
+        depth2[4].addEventListener('mouseleave',() => {
             depth2[4].classList.remove('on');
         })
         depth1[5].addEventListener('mouseover',() => {
@@ -637,7 +649,7 @@
             depth2[4].classList.remove('on');
             depth2[0].classList.remove('on');
         })
-        depth2[5].addEventListener('mouseout',() => {
+        depth2[5].addEventListener('mouseleave',() => {
             depth2[5].classList.remove('on');
         })
 

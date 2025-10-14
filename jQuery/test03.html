@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            width: 300px;
+        }
+        .container a{
+            display: inline-block;
+            color: #000;
+            text-decoration: none;
+            background-color: #ddd;
+            width: 200px;
+            text-align: center;
+            padding: 5px;
+        }
+        .container div{
+            background-color: dodgerblue;
+            height: 200px;
+            margin-top: 10px;
+            width: 200px;
+            color: #fff;
+            text-align: center;
+            display: none;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="show-btn" href="#">보이기</a>
+        <a class="hide-btn" href="#">감추기</a>
+        <a class="toggle-btn" href="#">토글</a>
+        <div class="box">BOX</div>
+    </div>
+
+    <script>
+        $(function(){
+            $('.show-btn').mouseenter(function(){
+                $('.box').show();
+            })
+            $('.hide-btn').mouseenter(function(){
+                $('.box').hide();
+            })
+            $('.toggle-btn').mouseenter(function(){
+                $('.box').toggle();
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>왼쪽 슬라이드</title>
+    <style>
+        *{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <label><input type="checkbox" id="checkAll" />전체 선택</label>
+    <ul>
+        <li>
+            <label><input type="checkbox" class="item-check" />항목 A</label>
+        </li>
+        <li>
+            <label><input type="checkbox" class="item-check" />항목 B</label>
+        </li>
+        <li>
+            <label><input type="checkbox" class="item-check" />항목 C</label>
+        </li>
+    </ul>
+
+    <script>
+        let checkAll = document.getElementById('checkAll');
+        let item = document.querySelectorAll('.item-check');
+
+        // change -> checkAll이 변경되는 사건이 일어나면
+        checkAll.addEventListener('change',() => {
+            // 아이템의 모든 체크박스가 체크되어야함 
+            // 현재 아이템 : 3개
+            for(let i = 0; i < item.length; i++){
+                item[i].checked = checkAll.checked;
+            }
+        })
+    </script>
+</body>
+</html>

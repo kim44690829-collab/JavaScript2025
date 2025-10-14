@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배너(슬라이드)</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body{
+            background-color: #f5f5f5;
+        }
+        .slider-wrap{
+            /* 부모 */
+            position: relative;
+            width: 600px;
+            height: 350px;
+            margin: 100px auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            /* 모서리 둥글게 숨기는 역할 */
+            overflow: hidden;
+        }
+        .slider-wrap .slider img{
+            width: 100%;
+            height: 100%;
+        }
+        .slider-wrap .btns{
+            /* 자식 */
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .slider-wrap .btns span{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        .slider-wrap .btns span.active{
+            background-color: #007bff;
+            /* transform : 요소에 회전, 확대, 이동, 기울기 등의 효과를 변형하여 사용 */
+            /* scale(1.3) => 크기를 1.3배로 확대한다. */
+            /* scale(0.5) => 크기를 절반으로 축소한다. */
+            /* rotate(45deg) => 45도 회전 (시계방향) */
+            /* rotate(180deg) => 180도 회전 -> 반대 */
+            transform: scale(1.3);
+        }
+        .slider-wrap .control{
+            /* 자식 */
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-wrap">
+        <div class="slider">
+            <img id="photo" src="img/pic_1.jpg" alt="슬라이드 이미지" />
+        </div>
+        <div class="btns">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="control" id="togglebtn">&#x23F8; 정지</div>
+    </div>
+
+    <!-- script 영역 -->
+    <script>
+        // 이미지 변경 -> photo.src에 접근하기 위한 document
+        let photo = document.getElementById('photo');
+        // btns[0], btns[1]... 배열 형태로 접근
+        let btns = document.querySelectorAll('.btns span');
+        // 재생/정지 토글버튼 사용하기 위한 document
+        let togglebtn = document.getElementById('togglebtn');
+        // 현재 보여지는 슬라이드의 인덱스 번호(0부터 시작)
+        let current = 0;
+        // btns.length를 total 변수로 지정, 현재 total = 5
+        let total = btns.length;
+        // 지금 현재 슬라이드가 재생중인지 아니면 정지한 상태인지를 저장하는 변수가 필요
+        // 이런건 true로 재생중 표현, false로 정지 표현하는 방법이 좋음
+        let isPlay = true;
+        // setInterval() 함수를 사용해서 반복적으로 이미지가 변경되도록 지정할 예정
+        let timer;
+
+        // 자동으로 이미지가 변경되는 함수
+        // 함수 이름 : slideShow(index)
+        function slideShow(){
+            // 이미지를 변경하는 코드
+            photo.src = `img/pic_${current+1}.jpg`
+            
+            // 모든 btns버튼에 active를 삭제
+            for(let i = 0; i < total; i++){
+                // i번째 버튼의 active class 삭제
+                btns[i].classList.remove('active');
+            }
+            // index에 해당하는 btns에 active 추가
+            btns[current].classList.add('active');
+        }
+
+        // 3초마다 이미지가 자동 변경되는 슬라이드 시작 함수
+        function startSlide(){
+            // setInterval(() => {실행문}, 3000)
+            timer = setInterval(() => {
+                if(current === total - 1){
+                    current = 0;
+                }else{
+                    current++;
+                }
+
+                // current에 1을 계속 누적해주고 있음.
+                // current = (current + 1) % total;
+
+                // 바뀐 인덱스에 해당하는 슬라이드 보여주기
+                slideShow(current);
+
+            }, 3000)
+        }
+
+        // stop 슬라이드 함수
+        function stopSlide(){
+            clearInterval(timer);
+        }
+
+        // 함수호출
+        slideShow(current);
+        startSlide();
+
+        // 재생 / 정지 버튼 상태함수
+        togglebtn.addEventListener('click',() => {
+            // 현재 상태가 재생중이면 정지동작 수행
+            if(isPlay){
+                stopSlide();
+                togglebtn.textContent = '▶ 재생';
+                // isPlay = false;
+            }else{
+                // 현재 정지상태면 재생동작 실행
+                startSlide();
+                togglebtn.textContent = '\u23F8 정지';
+                // isPlay = true;
+            }
+            // isPlay 상태를 토글(true -> false)
+            // isPlay = false 부분의 코드를 작성하지 않으면
+            // isPlay가 항상 true로 고정되어버림
+            // 그래서 버튼을 클릭해도 if(isPlay)조건이 항상 true -> stopSlide()만 계속 실행 시킴
+            // 한번 클릭 후 다시 재생이 되지 않음
+
+            // ! (부정) isPlay -> Not isPlay 
+            // isPlay = !isPlay;
+            // isPlay = false; 
+        })
+    </script>
+</body>
+</html>

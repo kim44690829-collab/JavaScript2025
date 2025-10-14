@@ -51,7 +51,7 @@ header .header_top .logout a:hover{
 /* 메인로고 position으로 띄우기 */
 header .header_center .main_logo{
     position: absolute;
-    left: 48%;
+    left: 49%;
     top: 30%;
     transform: translate(-50%,-50%);
 }
@@ -81,7 +81,9 @@ header .header_center .search button i{
     font-size: 25px;
     color: #333;
 }
-
+header .header_center .search button i:hover{
+    color: blueviolet;
+}
 /* 메뉴버튼 클릭전 */
 header .header_center .search #list_btn .fa-bars,
 header .header_center .search #search_btn .fa-magnifying-glass{
@@ -124,16 +126,22 @@ header .header_bottom .search_toggle{
 header .header_center .menu_wrap{
     display: flex;
 }
+header .header_center .menu_wrap ul li .depth2 li{
+    margin-right: 10px;
+}
+header .header_center .menu_wrap ul li .depth2 li a:hover{
+    text-decoration: underline;
+}
 header .header_center .menu1{
     margin-right: 100px;
     display: flex;
 }
-header .header_center .menu1 a{
+header .header_center .menu1 > li > a{
     margin-right: 80px;
     font-size: 18px;
     padding: 15px 0;
 }
-header .header_center .menu1 a:hover{
+header .header_center .menu1 > li > a:hover{
     border-bottom: 5px solid blueviolet;
     color: blueviolet;
 }
@@ -154,16 +162,38 @@ header .header_center .depth2 li{
 header .header_center .depth2.on{
     display: block;
 }
+header .header_center .depth2 li a{
+    color: #fff;
+}
+/* depth2 위치 조정 */
+header .header_center .menu_wrap .menu1 li .movie{
+    margin-left: 523px;
+}
+header .header_center .menu_wrap .menu1 li .reservation{
+    margin-left: 555px;
+}
+header .header_center .menu_wrap .menu1 li .cinema{
+    margin-left: 715px;
+}
+header .header_center .menu_wrap .menu2 li .event{
+    margin-left: 935px;
+}
+header .header_center .menu_wrap .menu2 li .store{
+    margin-left: 1093px;
+}
+header .header_center .menu_wrap .menu2 li .benefit{
+    margin-left: 1218px;
+}
 /* 메인로고 기준 우측 메뉴 */
 header .header_center .menu2{
     display: flex;
 }
-header .header_center .menu2 a{
+header .header_center .menu2 > li > a{
     margin-left: 80px;
     font-size: 18px;
     padding: 15px 0;
 }
-header .header_center .menu2 a:hover{
+header .header_center .menu2 > li > a:hover{
     border-bottom: 5px solid blueviolet;
     color: blueviolet;
 }
@@ -175,6 +205,9 @@ header .header_center .myPage a{
 header .header_center .myPage a i{
     font-size: 23px;
     color: #333;
+}
+header .header_center .myPage a i:hover{
+    color: blueviolet;
 }
 /* header_bottom css */
 header .header_bottom{

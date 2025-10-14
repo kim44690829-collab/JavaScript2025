@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>왼쪽 슬라이드</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            list-style: none;
+        }
+        body{
+            background-color: #f5f5f5;
+        }
+        .dropdown{
+            width: 200px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+            background-color: #333;
+            color: #d6d6d6;
+            border-radius: 5px 5px 0 0;
+            
+        }
+        .dropdown .dropdown-btn{
+            width: inherit;
+            padding: 10px;
+            border: none;
+            background-color: #555;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            font-size: 16px;
+            /* position: relative; */
+        }
+        .dropdown .dropdown-menu{
+            display: none;
+            /* position: absolute; */
+        }
+        .dropdown .dropdown-menu li{
+            padding: 15px;
+        }
+        .dropdown .dropdown-menu li:hover{
+            font-weight: bold;
+            color: #fff;
+        }
+        .dropdown span.active{
+            transform: rotate(180deg);
+            /* span 태그가 가지는 인라인 요소때문에 display : inline-block으로 변경하지 않으면 transform:rotate(180deg)가 실행되지 않는다. */
+            display: inline-block;
+        }
+        .dropdown .dropdown-menu.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropdown-btn" id="dropdownBtn">
+            고객센터 <span class="arrow">▼</span>
+        </button>
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li>공지사항</li>
+            <li>뉴스/이벤트</li>
+            <li>상품 리뷰</li>
+            <li>상품 문의</li>
+            <li>대량구매/도매문의</li>
+            <li>기타문의</li>
+        </ul>
+    </div>
+    <script>
+        let dropdownBtn = document.getElementById('dropdownBtn');
+        let arrow = document.querySelector('.arrow');
+        let dropdownMenu = document.getElementById('dropdownMenu');
+        dropdownBtn.addEventListener('click',() => {
+            dropdownMenu.classList.toggle('active');
+            arrow.classList.toggle('active');
+        })
+    </script>
+</body>
+</html>

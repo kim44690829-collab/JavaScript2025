@@ -7,7 +7,7 @@ body{
 .megabox_container{
     /* width: 1200px; */
     height: 100vh;
-    margin: 10px auto 0;
+    margin: 0 auto;
     position: relative;
 }
 /* header css */
@@ -19,10 +19,15 @@ header{
 header .header_TC{
     width: 1200px;
     margin: 0px auto;
+    overflow: hidden;
+    /* position: relative; */
 }
 /* header_top css 및 좌우 float */
 header .header_top{
+    float: left;
     margin-bottom: 5px;
+    padding-top: 10px;
+    width: 1200px;
 }
 header .header_top .memberShip{
     float: left;
@@ -49,21 +54,19 @@ header .header_top .logout a:hover{
     color: black;
 }
 /* 메인로고 position으로 띄우기 */
-header .header_center .main_logo{
+header h1{
     position: absolute;
-    left: 49%;
-    top: 30%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
 }
 /* header_center css 및 정렬 */
 header .header_center{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
     width: 1200px;
-    margin-top: 10px;
-    /* padding-bottom: 3px; */
+    position: relative;
+}
+header .header_center .search{
+    float: left;
 }
 /* header_center 좌측 목록 및 검색버튼 css */
 header .header_center .search button{
@@ -82,7 +85,7 @@ header .header_center .search button i{
     color: #333;
 }
 header .header_center .search button i:hover{
-    color: blueviolet;
+    color: #339eb2;
 }
 /* 메뉴버튼 클릭전 */
 header .header_center .search #list_btn .fa-bars,
@@ -120,94 +123,123 @@ header .header_bottom .search_toggle{
     left: 0;
     top: -1px;
     width: 100%;
-    background-color: rgb(73, 0, 141);
+    background-color: #351f67;
 }
 /* 메인로고 기준 좌측 메뉴 */
-header .header_center .menu_wrap{
+header .menu_wrap{
     display: flex;
+    padding-top: 19px;
+    padding-left: 90px;
 }
-header .header_center .menu_wrap ul li .depth2 li{
-    margin-right: 10px;
+header .menu_wrap ul li .depth2 li{
+    margin-right: 16px;
 }
-header .header_center .menu_wrap ul li .depth2 li a:hover{
+header .menu_wrap ul li .depth2 li a:hover{
     text-decoration: underline;
 }
-header .header_center .menu1{
+header .menu1{
     margin-right: 100px;
     display: flex;
 }
-header .header_center .menu1 > li > a{
+header .menu1 > li > a{
     margin-right: 80px;
     font-size: 18px;
-    padding: 15px 0;
+    padding: 15px 0 19px;
 }
-header .header_center .menu1 > li > a:hover{
-    border-bottom: 5px solid blueviolet;
-    color: blueviolet;
+/* header .menu1 > li > a:hover{
+    border-bottom: 5px solid #339eb2;
+    color: #339eb2;
+} */
+header .depth1.hover{
+    border-bottom: 5px solid #339eb2;
+    color: #339eb2;
 }
-header .header_center .depth2{
+header .depth2{
     /* display: flex; */
     display: none;
     position: absolute;
     width: 100%;
     padding: 10px;
     left: 0;
-    top: 80px;
+    top: 96px;
     z-index: 10;
-    background-color: blueviolet;
+    background-color: #339eb2;
 }
-header .header_center .depth2 li{
+header .depth2 li{
     display: inline-block;
 }
-header .header_center .depth2.on{
+header .depth2.on{
     display: block;
 }
-header .header_center .depth2 li a{
+header .depth2 li a{
     color: #fff;
 }
 /* depth2 위치 조정 */
-header .header_center .menu_wrap .menu1 li .movie{
-    margin-left: 523px;
+header .menu_wrap .menu1 li .movie,
+header .menu_wrap .menu1 li .reservation,
+header .menu_wrap .menu1 li .cinema,
+header .menu_wrap .menu2 li .event,
+header .menu_wrap .menu2 li .store,
+header .menu_wrap .menu2 li .benefit{
+    width: 1200px;
+    margin: 0 auto;
 }
-header .header_center .menu_wrap .menu1 li .reservation{
-    margin-left: 555px;
+
+header .menu_wrap .menu1 li .movie li:first-child{
+    margin-left: 185px;
 }
-header .header_center .menu_wrap .menu1 li .cinema{
-    margin-left: 715px;
+header .menu_wrap .menu1 li .reservation li:first-child{
+    margin-left: 170px;
 }
-header .header_center .menu_wrap .menu2 li .event{
-    margin-left: 935px;
+header .menu_wrap .menu1 li .cinema li:first-child{
+    margin-left: 378px;
 }
-header .header_center .menu_wrap .menu2 li .store{
-    margin-left: 1093px;
+header .menu_wrap .menu2 li .event li:first-child{
+    margin-left: 623px;
 }
-header .header_center .menu_wrap .menu2 li .benefit{
-    margin-left: 1218px;
+header .menu_wrap .menu2 li .store li:first-child{
+    margin-left: 755px;
 }
+header .menu_wrap .menu2 li .benefit li:first-child{
+    margin-left: 915px;
+}
+
 /* 메인로고 기준 우측 메뉴 */
-header .header_center .menu2{
+header .menu2{
     display: flex;
 }
-header .header_center .menu2 > li > a{
+header .menu2 > li{
+    /* position: relative; */
+}
+header .menu2 > li > a{
     margin-left: 80px;
     font-size: 18px;
-    padding: 15px 0;
+    padding: 15px 0 19px;
 }
-header .header_center .menu2 > li > a:hover{
-    border-bottom: 5px solid blueviolet;
-    color: blueviolet;
+header .menu2 > li:first-child > a{
+    margin-left: 100px;
+}
+
+/* header .menu2 > li > a:hover{
+    border-bottom: 5px solid #339eb2;
+    color: #339eb2;
+} */
+
+header .header_center .myPage{
+    float: right;
 }
 /* 마이페이지, 상영시간표 */
 header .header_center .myPage a{
     margin-left: 20px;
     padding: 20px 0;
+    display: inline-block;
 }
 header .header_center .myPage a i{
-    font-size: 23px;
+    font-size: 25px;
     color: #333;
 }
 header .header_center .myPage a i:hover{
-    color: blueviolet;
+    color: #339eb2;
 }
 /* header_bottom css */
 header .header_bottom{
@@ -238,7 +270,7 @@ header .header_bottom .list_toggle.list{
     z-index: 20;
     width: 100%;
 }
-header .header_bottom .list_toggle.list h1{
+header .header_bottom .list_toggle.list h2{
     margin: 40px 0 40px 18px;
     font-size: 30px;
     width: 1200px;
@@ -249,11 +281,15 @@ header .header_bottom .list_toggle.list .list01{
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    gap: 12px;
 }
 header .header_bottom .list_toggle.list ul{
     width: 170px;
     margin-right: 20px;
     text-align: center;
+}
+header .header_bottom .list_toggle.list ul.mt-minus{
+    margin-top: -100px;
 }
 header .header_bottom .list_toggle.list ul li{
     margin-bottom: 15px;
@@ -264,10 +300,11 @@ header .header_bottom .list_toggle.list ul a > li:hover{
     text-decoration: underline;
 } 
 header .header_bottom .list_toggle.list ul .list_title{
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 10px;
     border-bottom: 1px solid #999;
     border-top: 1px solid #999;
+    color: #fff;
 }
 /* 검색 토글 이후 */
 header .header_bottom .search_toggle.input_toggle{
@@ -941,7 +978,7 @@ footer .footer_bottom .footer-sns a i{
     justify-content: space-between;
     padding: 15px;
     font-size: 15px;
-    background-color: blueviolet;
+    background-color: #339eb2;
     color: #fff;
 }
 .megabox_container .modal .modal_info .modal_header > .modal_btn{
@@ -972,7 +1009,7 @@ footer .footer_bottom .footer-sns a i{
 }
 .megabox_container .modal .modal_info .modal_center .button_group #check{
     padding: 8px;
-    background-color: blueviolet;
+    background-color: #339eb2;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -980,8 +1017,8 @@ footer .footer_bottom .footer-sns a i{
 .megabox_container .modal .modal_info .modal_center .button_group #cancel{
     padding: 8px;
     background-color: #fff;
-    color: blueviolet;
-    border: 1px solid blueviolet;
+    color: #339eb2;
+    border: 1px solid #339eb2;
     border-radius: 5px;
     display: none;
 }
@@ -1040,7 +1077,7 @@ footer .footer_bottom .footer-sns a i{
     justify-content: space-between;
     padding: 15px;
     font-size: 15px;
-    background-color: blueviolet;
+    background-color: #339eb2;
     color: #fff;
 }
 .megabox_container .modal .modal_info .modal_header > .modal_btn{
@@ -1071,14 +1108,14 @@ footer .footer_bottom .footer-sns a i{
 }
 .megabox_container .modal .modal_info .modal_center .button_group #check1{
     padding: 8px;
-    background-color: blueviolet;
+    background-color: #339eb2;
     color: #fff;
     border: none;
     border-radius: 5px;
 }
 .megabox_container .modal .modal_info .modal_center .button_group #check2{
     padding: 8px;
-    background-color: blueviolet;
+    background-color: #339eb2;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -1089,8 +1126,8 @@ footer .footer_bottom .footer-sns a i{
 .megabox_container .modal .modal_info .modal_center .button_group #cancel{
     padding: 8px;
     background-color: #fff;
-    color: blueviolet;
-    border: 1px solid blueviolet;
+    color: #339eb2;
+    border: 1px solid #339eb2;
     border-radius: 5px;
     display: none;
 }

@@ -168,3 +168,145 @@
             ranking_order[0].classList.add('on');
             ranking_order[1].classList.remove('on1');
         })
+
+        
+
+        // 모달 배너 document
+        // x버튼 누르면 모달 삭제
+        let x_btn = document.getElementById('x_btn');
+        let modal_banner = document.querySelector('.modal_banner');
+
+        // 이미지 자동 변경
+        let banner = document.getElementById('banner');
+        // 현재 보여지는 슬라이드의 인덱스 번호(0부터 시작)
+        let current = 0;
+        let current2 = 0;
+        // setInterval() 함수를 사용해서 반복적으로 이미지가 변경되도록 지정할 예정
+        let timer;
+        let timer2;
+        // 이미지 변경시 span의 동그라미 자동 변경
+        let btns = document.querySelectorAll('.btns span');
+        // btns.length를 total 변수로 지정, 현재 total = 5
+        let total = btns.length;
+        
+
+        // 정지, 재생버튼 토글
+        let playStop = document.querySelector('#playStop');
+        let playStop2 = document.querySelector('#playStop2');
+        // 현재 버튼 상태
+        let isPlay = true;
+        let isPlay2 = true;
+
+        // input 누르면 하루동안 나오지 않기
+        let day1_btn = document.getElementById('day1_btn');
+
+        // x버튼 클릭 모달 삭제
+        x_btn.addEventListener('click',() => {
+          modal_banner.classList.add('active');
+        })
+
+        // section2 배너
+        let banner2_str = document.getElementById('banner2_str');
+        let banner2_img = document.getElementById('banner2_img');
+        console.log('banner2_str',banner2_str)
+        console.log('banner2_img',banner2_img)
+
+        // 이미지 변경시 span 막대기 자동변경
+        let banner_btns = document.querySelectorAll('.banner_btns span');
+        // banner_btns.length를 total2 변수로 지정
+        let total2 = banner_btns.length;
+
+        // section2 변경될 이미지 및 span 막대
+        function slideShow2(){
+            console.log('a')
+            banner2_str.src = `img/bannerS_${current2+1}.jpg`;
+            banner2_img.src = `img/banner_${current2+1}.jpg`;
+            for(let i = 0; i < total2; i++){
+                banner_btns[i].classList.remove('num1');
+            }
+            banner_btns[current2].classList.add('num1');
+        }
+
+        // section2 3초마다 자동 변경
+        function startSlide2(){
+            timer2 = setInterval(() => {
+                current2 = (current2 + 1) % total2;
+                slideShow2(current2);
+            }, 3000)
+        }
+        // section 정지
+        function stopSlide2(){
+            clearInterval(timer2);
+        }
+
+        slideShow2();
+        startSlide2();
+
+        playStop2.addEventListener('click',() => {
+            if(isPlay2){
+                stopSlide2();
+                playStop2.innerHTML = '<i class="fa-solid fa-play"></i>';
+            }else{
+                startSlide2();
+                playStop2.innerHTML = '<i class="fa-solid fa-stop"></i>';
+            }
+
+            isPlay2 = !isPlay2;
+        })
+
+        // 모달배너 script
+        // 이미지 자동 변경
+        function slideShow(){
+            // 이미지 변경을 위한 접근
+            banner.src = `img/banner1_${current+1}.jpg`;
+            // 기본적인 class="num" 삭제를 위한 코드
+            for(let i = 0; i < total; i++){
+                btns[i].classList.remove('num');
+            }
+            // 삭제한 num을 다시 심기위한 코드
+            btns[current].classList.add('num');
+        }
+
+        // span버튼 클릭시 클릭한 span에 해당하는 img로 가도록
+        // for(let i = 0; i < total; i++){
+        //         btns[i].addEventListener('click',() => {
+        //             banner.src = `img/banner1_${i+1}.jpg`;
+        //             btns[current].classList.remove('num');
+        //             btns[i].classList.add('num');
+        //             startSlide(i);
+        //         })
+        //     }
+
+        // 이미지 자동변경
+        function startSlide(){
+            // setInterval(() => {실행문}, 3000)
+            timer = setInterval(() => {
+                current = (current + 1) % total;
+                slideShow(current);
+            }, 3000)
+        }
+
+        // 이미지 멈추는 함수
+        function stopSlide(){
+            clearInterval(timer);
+        }
+
+        slideShow();
+        startSlide();
+
+            playStop.addEventListener('click',() => {
+            if(isPlay){
+                stopSlide();
+                playStop.innerHTML = '<i class="fa-solid fa-play"></i>';
+            }else{
+                startSlide();
+                playStop.innerHTML = '<i class="fa-solid fa-stop"></i>';
+            }
+
+            isPlay = !isPlay;
+        })
+
+        // label클릭시 하루동안 보지않기
+        day1_btn.addEventListener('click',() => {
+            modal_banner.classList.add('active');
+        })

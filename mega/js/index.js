@@ -208,8 +208,6 @@
         // section2 배너
         let banner2_str = document.getElementById('banner2_str');
         let banner2_img = document.getElementById('banner2_img');
-        console.log('banner2_str',banner2_str)
-        console.log('banner2_img',banner2_img)
 
         // 이미지 변경시 span 막대기 자동변경
         let banner_btns = document.querySelectorAll('.banner_btns span');
@@ -218,7 +216,6 @@
 
         // section2 변경될 이미지 및 span 막대
         function slideShow2(){
-            console.log('a')
             banner2_str.src = `img/bannerS_${current2+1}.jpg`;
             banner2_img.src = `img/banner_${current2+1}.jpg`;
             for(let i = 0; i < total2; i++){
@@ -252,6 +249,62 @@
             }
 
             isPlay2 = !isPlay2;
+        })
+
+        // section3 포스터 배열
+
+        let movie_right3 = document.querySelector('.movie_right3');
+        // section3 이미지 클릭시 bigimg변경
+        let big_img = document.getElementById('big_img');
+        let p1 = document.querySelector('.p1');
+        let p2 = document.querySelector('.p2');
+        let p3 = document.querySelector('.p3');
+
+        let movieNum = 1;
+        let movieName = ["마작", "프랑켄슈타인 : 더 뮤지컬 라이브", "만남의 집", "그저 사고였을 뿐", "연의 편지"];
+        let movieStory = [
+            "급격한 경제 성장을 이루며 전 세계의 돈이 모이는 1990년대 타이베이,<br/><br/>네 청년 홍어, 소부처, 홍콩 그리고 룬룬은 모든 것을 함께 나눈다는 약속을 하며청년 갱단을 조직해 한 집에서 살아간다.<br/><br/>남자친구와 재회하기 위해 무작정 타이베이를 찾았지만 갈 곳이 없어진 프랑스인 마르트.<br/>갱단의 리더 홍어는 마르트를 이용하기 위해 접근하고, 룬룬은 그녀에게 설레는 감정을 느끼기 시작한다.<br/><br/>한편, 홍어 아버지의 빚을 받아내려는 빚쟁이가 룬룬을 홍어로 착각해 룬룬과 마르트를 납치하는 사건이 벌어지는데....",
+            "“신을 믿어 지독하게. 하지만 그건 축복이 아니야, 저주를 통해서지.”<br/><br/>나폴레옹 전쟁의 참혹한 전장에서 시작된 과학자 빅터 프랑켄슈타인의 실험은 피조물을 탄생시키지만,<br/> 예기치 못한 피조물의 실종으로 파국을 맞이한다.<br/><br/>3년 뒤, 빅터 앞에 괴물이 되어 돌아온 피조물은 “교만한 창조주여, 내가 겪은 불행을 돌려주리라”는 저주와 함께<br/> 그의 운명을 뒤흔든다.<br/><br/>10년간 무대를 압도해온 한국 창작뮤지컬의 신화, 뮤지컬 〈프랑켄슈타인〉이 스크린에서 다시 살아난다.",
+            "15년 차 교도관 태저(송지효)는 근무 중 담당 수용자 미영(옥지영)의 모친 사망 소식을 전해 듣는다.<br/><br/>어느 겨울밤, 장례식장 빈소에서 예기치 못한 만남을 하게 된 태저와 미영의 딸 준영(도영서).<br/>짧은 만남은 두 사람의 삶에 따스한 균열을 일으키고, 결국 세 인물의 연결고리를 만들어낸다.<br/><br/>“네가 하는 모든 선택들이 모여서 네가 돼”<br/><br/>서로의 삶을 비추는 ‘햇빛 같은 만남’",
+            "어느 날, 나를 지옥으로 이끌던 삐걱 소리가 다시 들렸다.<br/><br/>분명 <strong>그놈</strong>이다. 하지만 만약에 아니라면?<br/><br/>“그저 사고였을 뿐? 누군가는 그걸 평생 기억해”",
+            "여름 방학이 지나고 새로운 학교로 전학 오게 된 ‘소리’는 자신의 책상 서랍에서 학교에 대한 소개와 <br/> 다음 편지를 찾을 수 있는 힌트가 담긴 익명의 편지 한 통을 발견한다.<br/><br/>“내 편지를 더 읽고 싶다면 두 번째 편지를 찾아줘!” 이어지는 편지를 따라서 보물찾기하듯 학교 곳곳을 누비던 ‘소리’는 <br/> 어쩐지 동급생 ‘동순’과 자꾸 마주치고, ‘소리’와 ‘동순’은 함께 편지를 찾는 친구가 된다.<br/><br/> 하나, 둘… 편지를 모을수록 특별한 인연이 이어지자, ‘소리’는 편지를 보낸 사람에 대한 궁금증이 점차 커져가게 되는데…<br/><br/> “마지막 편지까지 찾아서, 너에게 고맙다고 말하고 싶어”"
+        ]
+                       // i = 0부터 0,1,2,3,4 총길이 5
+        for(let i = 0; i < movieName.length; i++){
+            console.log(movieName.length)
+            movie_right3.innerHTML += `
+            <div class="movieInfo">
+                <img src="img/movie_${movieNum + i}.jpg" alt="영화상세 보기" class="moviePoster"/> 
+                <p>${movieName[i]}</p>
+            </div>
+            `
+        }
+        let moviePoster = document.querySelectorAll('.moviePoster'); // [0,1,2,3,4]
+        for(let i = 0; i < moviePoster.length; i++){
+            console.log(moviePoster.length)
+            moviePoster[i].addEventListener('click',() => {
+                big_img.src = `img/movie_${i+1}.jpg`;
+                p2.textContent = movieName[i];
+                p3.innerHTML = movieStory[i];
+                if(i === 1){
+                    p1.textContent = "#클래식소사이어티";
+                }else{
+                    p1.textContent = "#필름소사이어티";
+                }
+            })
+        }
+
+        // section4 오른쪽 버튼, 왼쪽버튼
+        let left2 = document.querySelector('.left2');
+        let right2 = document.querySelector('.right2');
+        let cinema_wrap = document.getElementById('cinema_wrap');
+        
+
+        right2.addEventListener('click',() => {
+            cinema_wrap.style.transform = 'translate3d(-180px, 0px, 0px)';
+        })
+        left2.addEventListener('click',() => {
+            cinema_wrap.style.transform = 'translate3d(180px, 0px, 0px)';
         })
 
         // 모달배너 script

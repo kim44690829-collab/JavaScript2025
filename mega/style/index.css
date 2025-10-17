@@ -476,18 +476,18 @@ body{
     background-color: #333;
     color: #fff;
     position: relative;
+    padding-bottom: 100px;
 }
-.index_container .section1 .left{
-    position: absolute;
-    left: 200px;
-    top: 50%;
-    font-size: 30px;
+.index_container .section1 .sec1_1{
+    display: flex;
+    width: 1450px;
+    margin: 0 auto;
+    gap: 100px;
+    align-items: center;
 }
-.index_container .section1 .right{
-    position: absolute;
-    right: 200px;
-    top: 50%;
+.index_container .section1 .sec1_1 i{
     font-size: 30px;
+    margin-bottom: 60px;
 }
 .index_container .section1 .title{
     padding: 100px 0 30px 0;
@@ -519,17 +519,18 @@ body{
     flex-wrap: nowrap;
     overflow: hidden;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
-.index_container .section1 .movies .movie{
+.index_container .section1 .movies .sec_movie{
     width: 250px;
     position: relative;
 }
-.index_container .section1 .movies .movie img{
+.index_container .section1 .movies .sec_movie img{
     width: 250px;
     height: 357px;
     border-radius: 10px;
 }
-.index_container .section1 .movies .movie .p_wrap{
+.index_container .section1 .movies .sec_movie .p_wrap{
     opacity: 0;
     position: absolute;
     top: 0;
@@ -541,35 +542,35 @@ body{
     border-radius: 10px;
     padding: 20px;
 }
-.index_container .section1 .movies .movie .p_wrap:hover{
+.index_container .section1 .movies .sec_movie .p_wrap:hover{
     opacity: 1;
     cursor: pointer;
 }
-.index_container .section1 .movies .movie .p_wrap .explanation{
+.index_container .section1 .movies .sec_movie .p_wrap .explanation{
     line-height: 1.6em;
     height: 265px;
 }
-.index_container .section1 .movies .movie .appraisal{
+.index_container .section1 .movies .sec_movie .appraisal{
     width: 220px;
     padding: 20px;
     border-top: 1px solid #fff;
     text-align: center;
 }
-.index_container .section1 .movies .movie .big{
+.index_container .section1 .movies .sec_movie .big{
     font-size: 25px;
     margin-left: 10px;
     color: cyan;
 }
-.index_container .section1 .movies .movie button{
+.index_container .section1 .movies .sec_movie button{
     width: 250px;
     padding: 10px;
-    margin: 10px 0 100px 0;
+    margin: 10px 0 30px 0;
     border-radius: 5px;
     border: 1px solid rgb(2, 180, 180);
     background-color: rgb(2, 180, 180);
     color: #fff;
 }
-.index_container .section1 .movies .movie button:hover{
+.index_container .section1 .movies .sec_movie button:hover{
     cursor: pointer;
     background-color: rgb(0, 114, 114);
     border: 1px solid rgb(0, 114, 114);
@@ -591,13 +592,15 @@ body{
 /* section2 배너 전체css */
 .index_container .section2 .sec2_1 #banner2{
     text-align: center;
+    margin-bottom: 100px;
+    margin-right: 200px;
 }
 /* section2 배너 이미지 css */
 .index_container .section2 .sec2_1 #banner2 #banner2_str{
     margin-bottom: 33px;
 }
 .index_container .section2 .sec2_1 #banner2 img{
-    width: 400px;
+    width: 300px;
 }
 /* section2 배너버튼 css */
 .index_container .section2 .sec2_1 .banner_btns{
@@ -605,6 +608,7 @@ body{
     left: 25px;
     bottom: 45px;
     display: flex;
+    cursor: pointer;
     /* gap: 1px; */
 }
 .index_container .section2 .sec2_1 .banner_btns span{
@@ -621,20 +625,42 @@ body{
     left: 0;
     bottom: 39px;
     color: blueviolet;
+    cursor: pointer;
+}
+/* section2 sec 2_1_poster */
+.index_container .section2 .sec2_1_poster1{
+    position: absolute;
+    left: 0;
+    top: 310px;
+    width: 1200px;
+}
+.index_container .section2 .sec2_1_poster2{
+    position: absolute;
+    left: 800px;
+    top: 0;
+    width: 1200px;
+}
+.index_container .section2 .sec2_1_poster1 img{
+    width: 779px;
+    height: 186px;
+}
+.index_container .section2 .sec2_1_poster2 img{
+    width: 400px;
+    height: 496px;
 }
 /* section2 .sec2_1 시작 */
 .index_container .section2 .sec2_2{
-    background-color: blueviolet;
-    height: 300px;
+    background-color: #503396;
+    height: 320px;
 }
 .index_container .section2 .sec2_2 .info{
     display: flex;
     justify-content: center;
-    width: 1200px;
-    margin: auto;
-    gap: 200px;
+    width: 1000px;
+    margin: 0 auto;
+    gap: 130px;
     align-items: center;
-    height: 300px;
+    height: 400px;
 }
 .index_container .section2 .sec2_2 .info1,
 .index_container .section2 .sec2_2 .info2,
@@ -644,12 +670,16 @@ body{
     text-align: center;
 }
 .index_container .section2 .sec2_2 .info a i{
-    font-size: 60px;
+    font-size: 40px;
     color: rgb(212, 212, 212);
     margin-bottom: 20px;
 }
 .index_container .section2 .sec2_2 .info a{
     color: rgb(212, 212, 212);;
+}
+.index_container .section2 .sec2_2 .info span{
+    display: inline-block;
+    width: 93px;
 }
 .index_container .section2 .sec2_2 .info a i:hover,
 .index_container .section2 .sec2_2 .info a:hover{
@@ -671,7 +701,7 @@ body{
     color: #fff;
 }
 .index_container .section3 .sec3_1 a{
-    margin-left: 900px;
+    margin-left: 953px;
     color: #999;
 }
 .index_container .section3 .sec3_1 a:hover{
@@ -689,6 +719,8 @@ body{
 }
 .index_container .section3 .sec3_2 .movie_left img{
     border-radius: 5px;
+    width: 294px;
+    height: 420px;
 }
 .index_container .section3 .sec3_2 .movie_left .movie_btn{
     margin: 10px 0 50px 0;
@@ -734,19 +766,200 @@ body{
     font-size: 40px;
     padding: 10px 0 20px 0;
     margin-bottom: 20px;
-    border-bottom: 1px solid #fff;
     width: 790px;
     color: #fff;
 }
-.index_container .section3 .sec3_2 .movie_right .movie_right2 p{
+.index_container .section3 .sec3_2 .movie_right .movie_right2 .p3{
     margin-left: 50px;
     line-height: 1.3em;
     color: #fff;
+    border-top: 1px solid #fff;
+    padding: 30px 0 0 0;
+    height: 250px;
+}
+/* section3 영화 포스터들 css */
+.index_container .section3 .sec3_2 .movie_right .movie_right3{
+    display: flex;
+    gap: 13px;
+    margin: 30px 0 100px 50px;
+}
+.index_container .section3 .sec3_2 .movie_right .movie_right3 img{
+    width: 160px;
+    height: 230px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.index_container .section3 .sec3_2 .movie_right .movie_right3 p{
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+    height: 16px;
+}
+/* section3 끝 section4 시작 */
+.index_container .section4 .sec4_1{
+    width: 1200px;
+    margin: 50px auto;
+}
+.index_container .section4 .sec4_1 p{
+    font-size: 30px;
+    color: #503396;
+    margin-left: 60px;
+}
+.index_container .section4 .sec4_2{
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.index_container .section4 .sec4_2 i{
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+.index_container .section4 .sec4_2 .add{
+    overflow: hidden;
+}
+.index_container .section4 .sec4_2 #cinema_wrap{
+    float: left;
+    width: 1200px;
+    overflow: hidden;
+}
+
+.index_container .section4 .cinemaInfo{
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 1080px;
+    margin: 0 auto;
+    align-items: center;
+}
+.index_container .section4 .cinemaInfo .sec4_2{
+    width: 1200px;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+}
+.index_container .section4 .cinemaInfo_1,
+.index_container .section4 .cinemaInfo_2,
+.index_container .section4 .cinemaInfo_3,
+.index_container .section4 .cinemaInfo_4,
+.index_container .section4 .cinemaInfo_5,
+.index_container .section4 .cinemaInfo_6,
+.index_container .section4 .cinemaInfo_7,
+.index_container .section4 .cinemaInfo_8,
+.index_container .section4 .cinemaInfo_9,
+.index_container .section4 .cinemaInfo_10{
+    width: 170px;
+    height: 170px;
+    background-repeat: no-repeat;
+    flex: 1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.index_container .section4 .cinemaInfo_1:hover,
+.index_container .section4 .cinemaInfo_2:hover,
+.index_container .section4 .cinemaInfo_3:hover,
+.index_container .section4 .cinemaInfo_4:hover,
+.index_container .section4 .cinemaInfo_5:hover,
+.index_container .section4 .cinemaInfo_6:hover,
+.index_container .section4 .cinemaInfo_7:hover,
+.index_container .section4 .cinemaInfo_8:hover,
+.index_container .section4 .cinemaInfo_9:hover,
+.index_container .section4 .cinemaInfo_10:hover{
+    background-position: 50% 100%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_1{
+    background: url('img/pic_1.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .sec4_2.move{
+    
+}
+.index_container .section4 .cinemaInfo_2{
+    background:url('img/pic_2.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_3{
+    background:url('img/pic_3.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_4{
+    background:url('img/pic_4.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_5{
+    background:url('img/pic_5.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_6{
+    background:url('img/pic_6.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_7{
+    background:url('img/pic_7.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_8{
+    background:url('img/pic_8.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_9{
+    background:url('img/pic_9.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+.index_container .section4 .cinemaInfo_10{
+    background:url('img/pic_10.png');
+    background-position: 50% 0%;
+    background-size: 170px 170px;
+    background-size: cover;
+}
+/* .index_container .section4_3 고객센터 */
+.index_container .section4 .mega_info{
+    display: flex;
+    width: 1300px;
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    justify-content: center;
+    gap: 80px;
+    text-align: center;
+}
+.index_container .section4 .mega_info .mega_info_1 a i{
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #503396;
 }
 /* footer 시작 */
 .index_container footer{
     background-color: #fff;    
     width: 100%;
+    border-top: 1px solid gray;
 }
 
 .index_container footer .footer_top,
@@ -899,4 +1112,12 @@ body{
 }
 .index_container .modal_banner .day1_input label{
     cursor: pointer;
+}
+.index_container > a > i{
+    position: fixed;
+    z-index: 999;
+    right: 100px;
+    bottom: 100px;
+    color: #000;
+    font-size: 50px;
 }
